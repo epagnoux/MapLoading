@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:MapLoading" x:Class="MapLoading.MainWindow"
         Title="MainWindow" >
-	<Grid >
+	<Grid Background="#FF292929" >
     <!--<Image x:Name="image" Source="pack://siteoforigin:,,,/bk.png" />-->
 		<local:ParasitEffect />
 	</Grid>

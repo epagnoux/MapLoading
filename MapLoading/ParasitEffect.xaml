@@ -96,10 +96,25 @@
       </ObjectAnimationUsingKeyFrames>
     </Storyboard>
     <Storyboard x:Key="Storyboard2" />
+    <Storyboard x:Key="Storyboard3">
+    	<ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderThickness)" Storyboard.TargetName="mask">
+    		<EasingThicknessKeyFrame KeyTime="0" Value="6"/>
+    		<EasingThicknessKeyFrame KeyTime="0:0:2" Value="6,6,50,6">
+    			<EasingThicknessKeyFrame.EasingFunction>
+    				<BounceEase EasingMode="EaseOut"/>
+    			</EasingThicknessKeyFrame.EasingFunction>
+    		</EasingThicknessKeyFrame>
+    	</ThicknessAnimationUsingKeyFrames>
+    	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="image">
+    		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+    		<EasingDoubleKeyFrame KeyTime="0:0:2" Value="-555"/>
+    	</DoubleAnimationUsingKeyFrames>
+    </Storyboard>
   </UserControl.Resources>
   <UserControl.Triggers>
     <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-      <BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
+      <!--<BeginStoryboard Storyboard="{StaticResource Storyboard1}" />-->
+      <BeginStoryboard Storyboard="{StaticResource Storyboard3}"/>
     </EventTrigger>
   </UserControl.Triggers>
   <!--<UserControl.Triggers>
@@ -127,9 +142,21 @@
     <VisualStateManager.CustomVisualStateManager>
       <ei:ExtendedVisualStateManager />
     </VisualStateManager.CustomVisualStateManager>
-    <Path x:Name="mask" />
+    <!--<Path x:Name="mask" Data="M0,0 L0,100 100,100 100,0 z" Fill="Black" />-->
+	<Border x:Name="mask" Background="Black" Width="100" Height="100" BorderBrush="Transparent" BorderThickness="6" />
     <Image x:Name="image" Source="pack://siteoforigin:,,,/bk.png" RenderTransformOrigin="0.5,0.5">
-      <Image.Clip>
+    	<Image.RenderTransform>
+    		<TransformGroup>
+    			<ScaleTransform/>
+    			<SkewTransform/>
+    			<RotateTransform/>
+    			<TranslateTransform/>
+    		</TransformGroup>
+    	</Image.RenderTransform>
+      <Image.OpacityMask>
+        <VisualBrush Visual="{Binding ElementName=mask}"></VisualBrush>
+      </Image.OpacityMask>
+      <!--<Image.Clip>
         
         <PathGeometry >
           <PathGeometry.Transform>
@@ -152,8 +179,9 @@
             </PathFigureCollection>
           </PathGeometry.Figures>
         </PathGeometry>
-      </Image.Clip>
+      </Image.Clip>-->
     </Image>
+    <Path Data="M-392.82918,-249.38202 L-383.30606,574.66292 669,579 669,-249.38202 z" HorizontalAlignment="Left" Height="573" Margin="0,6,0,0" Stretch="Fill" VerticalAlignment="Top" Width="669"/>
 
   </Grid>
 </UserControl>
