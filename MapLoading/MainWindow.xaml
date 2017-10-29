@@ -1,0 +1,10 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MapLoading" x:Class="MapLoading.MainWindow"
+        Title="MainWindow" >
+	<Grid >
+    <!--<Image x:Name="image" Source="pack://siteoforigin:,,,/bk.png" />-->
+		<local:ParasitEffect Width="500" Height="500"/>
+	</Grid>
+</Window>

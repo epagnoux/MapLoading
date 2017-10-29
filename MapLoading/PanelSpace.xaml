@@ -1,0 +1,17 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="MapLoading.PanelSpace"
+	x:Name="UserControl"
+	d:DesignWidth="197.947" d:DesignHeight="393.533">
+
+	<Grid x:Name="LayoutRoot">
+		<Grid Opacity="1" HorizontalAlignment="Center" Margin="0,0,0.001,0.001" Width="197.946" >
+			<Path Data="M98,148 L264.5,148 264.5,518.5 247,536 98.5,536 z" Fill="#FFe05138" HorizontalAlignment="Left" Height="393.5" Stretch="Fill" VerticalAlignment="Top" Width="169.833" />
+			<TextBlock Text="S" Foreground="Black" FontSize="346.667" FontFamily="Poppins Light" Margin="-14,-122,14,122" />
+		</Grid>
+	</Grid>
+</UserControl>
