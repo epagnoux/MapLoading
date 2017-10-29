@@ -5,6 +5,6 @@
         Title="MainWindow" >
 	<Grid >
     <!--<Image x:Name="image" Source="pack://siteoforigin:,,,/bk.png" />-->
-		<local:ParasitEffect Width="500" Height="500"/>
+		<local:ParasitEffect />
 	</Grid>
 </Window>
