@@ -7,95 +7,9 @@
   xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
   mc:Ignorable="d"
   x:Class="MapLoading.ParasitEffect"
-  x:Name="UserControl">
+  x:Name="root">
   <UserControl.Resources>
 
-    <Storyboard x:Key="Storyboard1">
-      <!--<DoubleAnimation Duration="0:0:1"
-                     Storyboard.TargetName="image"
-                     Storyboard.TargetProperty="(UIElement.Clip).(Geometry.Transform).(ScaleTransform.ScaleX)"
-                     To="0" />-->
-      <!--<DoubleAnimationUsingKeyFrames
-        Storyboard.TargetName="image"
-        Storyboard.TargetProperty="(UIElement.Clip).(PathGeometry.Transform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
-        <EasingDoubleKeyFrame KeyTime="0" Value="2" />
-        <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1" />
-      </DoubleAnimationUsingKeyFrames>
-      <DoubleAnimationUsingKeyFrames
-        Storyboard.TargetName="image"
-        Storyboard.TargetProperty="(UIElement.Clip).(PathGeometry.Transform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
-        <EasingDoubleKeyFrame KeyTime="0" Value="2" />
-        <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1" />
-      </DoubleAnimationUsingKeyFrames>-->
-      <DoubleAnimationUsingKeyFrames
-        Storyboard.TargetName="image"
-        Storyboard.TargetProperty="(UIElement.Clip).(PathGeometry.Transform).(TransformGroup.Children)[1].(TranslateTransform.X)">
-        <EasingDoubleKeyFrame KeyTime="0" Value="0" />
-        <EasingDoubleKeyFrame KeyTime="0:0:2" Value="250" />
-      </DoubleAnimationUsingKeyFrames>
-      <!--<DoubleAnimationUsingKeyFrames
-        Storyboard.TargetName="image"
-        Storyboard.TargetProperty="(UIElement.Clip).(PathGeometry.Transform).(TransformGroup.Children)[1].(TranslateTransform.Y)">
-        <EasingDoubleKeyFrame KeyTime="0" Value="50" />
-        <EasingDoubleKeyFrame KeyTime="0:0:2" Value="150" />
-      </DoubleAnimationUsingKeyFrames>-->
-      <!--<DoubleAnimationUsingKeyFrames
-        Storyboard.TargetName="image"
-        Storyboard.TargetProperty="(UIElement.Clip).(PathGeometry.Transform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
-        <EasingDoubleKeyFrame KeyTime="0" Value="0" />
-        <EasingDoubleKeyFrame KeyTime="0:0:2" Value="360" />
-      </DoubleAnimationUsingKeyFrames>-->
-      <!--<DoubleAnimationUsingKeyFrames
-        Storyboard.TargetName="image"
-        Storyboard.TargetProperty="(UIElement.Clip).(PathGeometry.Transform).(ScaleTransform.ScaleX)">
-        <EasingDoubleKeyFrame KeyTime="0" Value="0.5" />
-        <EasingDoubleKeyFrame KeyTime="0:0:2" Value="5" />
-      </DoubleAnimationUsingKeyFrames>-->
-      <!--<DoubleAnimationUsingKeyFrames  
-                     Storyboard.TargetName="image"
-                     Storyboard.TargetProperty="(UIElement.Clip).(Geometry.Transform).(ScaleTransform.ScaleX)">
-        <EasingDoubleKeyFrame KeyTime="0" Value="0.5"/>
-        <EasingDoubleKeyFrame KeyTime="0:0:2" Value="5"/>
-      </DoubleAnimationUsingKeyFrames>-->
-
-      <!--<DoubleAnimationUsingKeyFrames  
-                     Storyboard.TargetName="image"
-                     Storyboard.TargetProperty="(UIElement.Clip).(Geometry.Transform).(ScaleTransform.ScaleX)">
-        <EasingDoubleKeyFrame KeyTime="0" Value="0.5"/>
-        <EasingDoubleKeyFrame KeyTime="0:0:2" Value="5"/>
-      </DoubleAnimationUsingKeyFrames>-->
-
-      <!--<DoubleAnimation Duration="0:0:1"
-                     Storyboard.TargetName="image"
-                     Storyboard.TargetProperty="(UIElement.Clip).(Geometry.Transform).(ScaleTransform.ScaleX)"
-                     To="0" />-->
-    </Storyboard>
-    <Storyboard x:Key="AnimateClip" ei:ExtendedVisualStateManager.UseFluidLayout="True">
-      <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Clip)"
-                                     Storyboard.TargetName="image">
-        <DiscreteObjectKeyFrame KeyTime="0">
-          <DiscreteObjectKeyFrame.Value>
-            <RectangleGeometry Rect="0,0,25,25" />
-          </DiscreteObjectKeyFrame.Value>
-        </DiscreteObjectKeyFrame>
-        <DiscreteObjectKeyFrame KeyTime="0:0:1.565">
-          <DiscreteObjectKeyFrame.Value>
-            <RectangleGeometry Rect="0,0,50,50" />
-          </DiscreteObjectKeyFrame.Value>
-        </DiscreteObjectKeyFrame>
-        <DiscreteObjectKeyFrame KeyTime="0:0:3.235">
-          <DiscreteObjectKeyFrame.Value>
-            <RectangleGeometry Rect="0,0,100,100" />
-          </DiscreteObjectKeyFrame.Value>
-        </DiscreteObjectKeyFrame>
-        <DiscreteObjectKeyFrame KeyTime="0:0:4.8">
-          <DiscreteObjectKeyFrame.Value>
-            <RectangleGeometry Rect="0,0,200,200" />
-          </DiscreteObjectKeyFrame.Value>
-        </DiscreteObjectKeyFrame>
-      </ObjectAnimationUsingKeyFrames>
-    </Storyboard>
-    <Storyboard x:Key="Storyboard2" />
     <Storyboard x:Key="Storyboard3">
     	<ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderThickness)" Storyboard.TargetName="mask">
     		<EasingThicknessKeyFrame KeyTime="0" Value="6"/>
@@ -105,7 +19,7 @@
     			</EasingThicknessKeyFrame.EasingFunction>
     		</EasingThicknessKeyFrame>
     	</ThicknessAnimationUsingKeyFrames>
-    	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="image">
+    	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="content">
     		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
     		<EasingDoubleKeyFrame KeyTime="0:0:2" Value="-555"/>
     	</DoubleAnimationUsingKeyFrames>
@@ -113,75 +27,25 @@
   </UserControl.Resources>
   <UserControl.Triggers>
     <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-      <!--<BeginStoryboard Storyboard="{StaticResource Storyboard1}" />-->
       <BeginStoryboard Storyboard="{StaticResource Storyboard3}"/>
     </EventTrigger>
   </UserControl.Triggers>
-  <!--<UserControl.Triggers>
-    <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-      <BeginStoryboard Storyboard="{StaticResource AnimateClip}" />
-    </EventTrigger>
-  </UserControl.Triggers>-->
 
   <Grid x:Name="LayoutRoot">
-    <VisualStateManager.VisualStateGroups>
-      <VisualStateGroup x:Name="VisualStateGroup" ei:ExtendedVisualStateManager.UseFluidLayout="True" />
-    </VisualStateManager.VisualStateGroups>
-
-    <!--<Rectangle x:Name="mask" Fill="White" Width="100" Height="100"></Rectangle>
-     <Grid Background="BlueViolet">
-        <Grid.OpacityMask>
-          <VisualBrush Visual="{Binding ElementName=mask}"/>
-        </Grid.OpacityMask>
-  		<ContentControl>
-      <ContentControl.Content>
-        <local:PanelSpace Margin="861.027,343.234,861.026,343.233"/>
-      </ContentControl.Content>
-		</ContentControl>
-    </Grid>-->
-    <VisualStateManager.CustomVisualStateManager>
-      <ei:ExtendedVisualStateManager />
-    </VisualStateManager.CustomVisualStateManager>
-    <!--<Path x:Name="mask" Data="M0,0 L0,100 100,100 100,0 z" Fill="Black" />-->
-	<Border x:Name="mask" Background="Black" Width="100" Height="100" BorderBrush="Transparent" BorderThickness="6" />
-    <Image x:Name="image" Source="pack://siteoforigin:,,,/bk.png" RenderTransformOrigin="0.5,0.5">
-    	<Image.RenderTransform>
+	<Border x:Name="mask" Background="Black" Width="100" Height="100" BorderBrush="Transparent" BorderThickness="6" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+    <ContentControl x:Name="content" RenderTransformOrigin="0.5,0.5" Content="{Binding Content,ElementName=root}">
+    	<ContentControl.RenderTransform>
     		<TransformGroup>
     			<ScaleTransform/>
     			<SkewTransform/>
     			<RotateTransform/>
     			<TranslateTransform/>
     		</TransformGroup>
-    	</Image.RenderTransform>
-      <Image.OpacityMask>
+    	</ContentControl.RenderTransform>
+      <ContentControl.OpacityMask>
         <VisualBrush Visual="{Binding ElementName=mask}"></VisualBrush>
-      </Image.OpacityMask>
-      <!--<Image.Clip>
-        
-        <PathGeometry >
-          <PathGeometry.Transform>
-            <TransformGroup>
-              <ScaleTransform ScaleX="2" ScaleY="2" />
-              <TranslateTransform X="0" Y="50" />
-            </TransformGroup>
-          </PathGeometry.Transform>
-          <PathGeometry.Figures>
-            <PathFigureCollection>
-              <PathFigure IsClosed="True" StartPoint="0,0" >
-                <PathFigure.Segments>
-                  <PathSegmentCollection>
-                    <LineSegment Point="0,200" />
-                    <LineSegment Point="200,200" />
-                    <LineSegment Point="200,0" />
-                  </PathSegmentCollection>
-                </PathFigure.Segments>
-              </PathFigure>
-            </PathFigureCollection>
-          </PathGeometry.Figures>
-        </PathGeometry>
-      </Image.Clip>-->
-    </Image>
-    <Path Data="M-392.82918,-249.38202 L-383.30606,574.66292 669,579 669,-249.38202 z" HorizontalAlignment="Left" Height="573" Margin="0,6,0,0" Stretch="Fill" VerticalAlignment="Top" Width="669"/>
-
+      </ContentControl.OpacityMask>
+    
+    </ContentControl>
   </Grid>
 </UserControl>
