@@ -28,45 +28,33 @@
 		</Storyboard>
 
 		<Storyboard x:Key="Storyboard2">
-      <!--<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Clip).(RectangleGeometry.Transform).(TransformGroup.Children)[0].Y" Storyboard.TargetName="canvas2">
-        <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-        <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="50"/>
-        <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="216.5"/>
-        <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="383"/>
-        <EasingDoubleKeyFrame KeyTime="0:0:1" Value="383"/>
-    </DoubleAnimationUsingKeyFrames>-->
       <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Clip).(RectangleGeometry.Transform).(TransformGroup.Children)[1].ScaleX" Storyboard.TargetName="canvas2">
-        <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-        <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.5"/>
-        <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0.6"/>
-        <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0.7"/>
-        <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+        <EasingDoubleKeyFrame KeyTime="0" Value="0.59"/>
+        <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.45"/>
     </DoubleAnimationUsingKeyFrames>
       <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Clip).(RectangleGeometry.Transform).(TransformGroup.Children)[1].ScaleY" Storyboard.TargetName="canvas2">
         <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-        <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.5">
-        	<EasingDoubleKeyFrame.EasingFunction>
-        		<BounceEase EasingMode="EaseOut"/>
-        	</EasingDoubleKeyFrame.EasingFunction>
-        </EasingDoubleKeyFrame>
-        <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0.6"/>
-        <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0.7"/>
+        <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.1"/>
         <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
     </DoubleAnimationUsingKeyFrames>
-        <!--<DoubleAnimation Storyboard.TargetName="ClipTransform" Duration="0:0:1" To="-50" Storyboard.TargetProperty="Y">-->
-			<!--</DoubleAnimation>-->
-
-			
+      <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Clip).(RectangleGeometry.Transform).(TransformGroup.Children)[0].X" Storyboard.TargetName="canvas2">
+        <EasingDoubleKeyFrame KeyTime="0" Value="16"/>
+        <EasingDoubleKeyFrame KeyTime="0:0:1" Value="55"/>
+	  </DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+    
+	<Storyboard x:Key="Storyboard3">
 		</Storyboard>
 	</UserControl.Resources>
 	<UserControl.Triggers>
 		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
-			<BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+			<BeginStoryboard Storyboard="{StaticResource Storyboard2}"/>
+			<BeginStoryboard Storyboard="{StaticResource Storyboard3}"/>
 		</EventTrigger>
 	</UserControl.Triggers>
 
 	<Grid x:Name="LayoutRoot" Height="383" Width="170" >
-		<Canvas x:Name="canvas1" ClipToBounds="True" Width="170"  Height="383" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" d:IsHidden="True" >
+		<Canvas x:Name="canvas1" ClipToBounds="True" Width="170"  Height="383" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" d:IsHidden="True" Visibility="Collapsed" >
 			<Canvas.RenderTransform>
 				<TransformGroup>
 					<ScaleTransform/>
@@ -82,10 +70,10 @@
 		</Canvas>
     <Canvas x:Name="canvas2" HorizontalAlignment="Left" Height="383" Margin="0,0,0,0"  Width="170"  ClipToBounds="True"   >
         <Canvas.Clip>
-          <RectangleGeometry x:Name="mask" Rect="0,0,50,50">
+          <RectangleGeometry x:Name="mask" Rect="0,0,170,383">
             <RectangleGeometry.Transform>
               <TransformGroup>
-              <TranslateTransform X="25" Y="50" ></TranslateTransform>
+              <TranslateTransform X="0" Y="0"></TranslateTransform>
               <ScaleTransform ScaleX="2" ScaleY="2" ></ScaleTransform>
             </TransformGroup>
           </RectangleGeometry.Transform>
@@ -94,7 +82,7 @@
         <Path Data="M98,148 L264.5,148 264.5,518.5 247,536 98.5,536 z" Fill="#FF40E038" HorizontalAlignment="Left" Height="383" Width="170" Stretch="Fill" />
           <TextBlock Text="S" Foreground="Black" FontSize="347" FontFamily="Poppins Light" Margin="-14,-122,0,0" />
     </Canvas>
-    <Canvas x:Name="canvas3" ClipToBounds="True" Width="170"  Height="383" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" d:IsHidden="True"  >
+    <Canvas x:Name="canvas3" ClipToBounds="True" Width="170"  Height="383" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" d:IsHidden="True" Visibility="Collapsed" >
 			<Canvas.RenderTransform>
 				<TransformGroup>
 					<ScaleTransform/>

@@ -6,10 +6,11 @@
   <Window.Resources>
   </Window.Resources>
   <Grid Background="#FF292929">
-    <local:ParasitEffect>
+    <!--<local:ParasitEffect>
       <local:ParasitEffect.Content>
         <Image Source="pack://siteoforigin:,,,/bk.png" />
       </local:ParasitEffect.Content>
-    </local:ParasitEffect>
+    </local:ParasitEffect>-->
+	<local:PanelSpace></local:PanelSpace>
   </Grid>
 </Window>
