@@ -8,7 +8,7 @@
   x:Class="MapLoading.PanelSpace"
   x:Name="root">
   <UserControl.Resources>
-    <Storyboard x:Key="Storyboard1" >
+    <Storyboard x:Key="Storyboard1">
       <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock">
         <EasingDoubleKeyFrame KeyTime="0" Value="0" />
         <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0" />
@@ -16,28 +16,28 @@
       </DoubleAnimationUsingKeyFrames>
     </Storyboard>
 
-  <DataTemplate x:Key="PanelSpace_DefaultTemplate" >
-    <Canvas Height="383" Width="170" >
-      <Path Data="M98,148 L264.5,148 264.5,518.5 247,536 98.5,536 z" Fill="#FFe05138" HorizontalAlignment="Left"
-          Height="383" Width="170" Stretch="Fill" />
-      <TextBlock x:Name="textBlock" Text="S" Foreground="Black" FontSize="347" FontFamily="Poppins Light"
-               Margin="-14,-122,0,0" />
-    </Canvas>
-  </DataTemplate>
-  <DataTemplate x:Key="PanelSpace_EmptyTemplate" >
-  </DataTemplate>
-  
-  <local:PanelSpaceTemplateSelector x:Key="PanelSpaceTemplateSelector"
-                                         DefaultTemplate="{StaticResource PanelSpace_DefaultTemplate}"
-                                         EmptyTemplate="{StaticResource PanelSpace_EmptyTemplate}" />
+    <DataTemplate x:Key="PanelSpace_DefaultTemplate">
+      <Canvas Height="383" Width="170">
+        <Path Data="M98,148 L264.5,148 264.5,518.5 247,536 98.5,536 z" Fill="#FFe05138" HorizontalAlignment="Left"
+              Height="383" Width="170" Stretch="Fill" />
+        <TextBlock x:Name="textBlock" Text="S" Foreground="Black" FontSize="347" FontFamily="Poppins Light"
+                   Margin="-14,-122,0,0" />
+      </Canvas>
+      <DataTemplate.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+          <BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
+        </EventTrigger>
+      </DataTemplate.Triggers>
+    </DataTemplate>
+    <DataTemplate x:Key="PanelSpace_EmptyTemplate" />
+
+    <local:PanelSpaceTemplateSelector x:Key="PanelSpaceTemplateSelector"
+                                      DefaultTemplate="{StaticResource PanelSpace_DefaultTemplate}"
+                                      EmptyTemplate="{StaticResource PanelSpace_EmptyTemplate}" />
   </UserControl.Resources>
-  <ContentControl x:Name="contentControl" 
+  <ContentControl x:Name="contentControl"
                   Content="{Binding Template, ElementName=root}"
                   Margin="1,0,0,0"
                   ContentTemplateSelector="{StaticResource PanelSpaceTemplateSelector}" />
-  <!--<UserControl.Triggers>
-    <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-      <BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
-    </EventTrigger>
-  </UserControl.Triggers>-->
+
 </UserControl>
