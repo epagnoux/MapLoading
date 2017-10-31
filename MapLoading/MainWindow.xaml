@@ -11,7 +11,9 @@
       <RowDefinition></RowDefinition>
     </Grid.RowDefinitions>
       <MapLoading:PanelSpaceEffect Grid.Row="1" HorizontalAlignment="Center">
-        <MapLoading:PanelSpace />
+        <!--<MapLoading:PanelSpaceEffect.MyContent>
+          <MapLoading:PanelSpace />  
+        </MapLoading:PanelSpaceEffect.MyContent>-->
     </MapLoading:PanelSpaceEffect>
   </Grid>
 </Window>

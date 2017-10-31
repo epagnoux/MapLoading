@@ -8,8 +8,8 @@ namespace MapLoading
   /// </summary>
   public partial class PanelSpaceEffect : UserControl
   {
-    public static readonly DependencyProperty ContentProperty =
-      DependencyProperty.Register("Content",
+    public static readonly DependencyProperty MyContentProperty =
+      DependencyProperty.Register("MyContent",
         typeof (object),
         typeof (PanelSpaceEffect));
 
@@ -19,10 +19,10 @@ namespace MapLoading
       InitializeComponent();
     }
 
-    public object Content
+    public object MyContent
     {
-      get { return GetValue(ContentProperty); }
-      set { SetValue(ContentProperty, value); }
+      get { return GetValue(MyContentProperty); }
+      set { SetValue(MyContentProperty, value); }
     }
   }
 }
