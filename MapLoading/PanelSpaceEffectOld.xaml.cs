@@ -14,9 +14,9 @@ using System.Windows.Shapes;
 namespace MapLoading
 {
 	/// <summary>
-	/// Interaction logic for ParasitEffect.xaml
+	/// Interaction logic for PanelSpaceEffect.xaml
 	/// </summary>
-	public partial class ParasitEffect : UserControl
+	public partial class PanelSpaceEffect : UserControl
 	{
 
     //public object Content
@@ -28,10 +28,10 @@ namespace MapLoading
     //public static readonly DependencyProperty ContentProperty =
     //  DependencyProperty.Register("Content",
     //    typeof (object),
-    //    typeof (ParasitEffect));
+    //    typeof (PanelSpaceEffect));
 
 
-		public ParasitEffect()
+		public PanelSpaceEffect()
 		{
 			this.InitializeComponent();
 		}

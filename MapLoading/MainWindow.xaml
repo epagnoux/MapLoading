@@ -61,7 +61,7 @@
             MouseUp="zoomAndPanControl_MouseUp"
             MouseMove="zoomAndPanControl_MouseMove"
             MouseWheel="zoomAndPanControl_MouseWheel">-->
-      <MapLoading:PanelSpace x:Name="content"></MapLoading:PanelSpace>
+      <MapLoading:PanelSpaceEffect x:Name="content"></MapLoading:PanelSpaceEffect>
         <!--<Canvas
           x:Name="content"
           Width="2000"

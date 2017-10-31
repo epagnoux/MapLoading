@@ -13,9 +13,6 @@ using System.Windows.Shapes;
 
 namespace MapLoading
 {
-	/// <summary>
-	/// Interaction logic for PanelSpace.xaml
-	/// </summary>
 	public partial class PanelSpace : UserControl
 	{
 		public PanelSpace()

@@ -18,19 +18,6 @@ namespace MapLoading
 	/// </summary>
 	public partial class PanelSpaceEffect : UserControl
 	{
-
-    //public object Content
-    //{
-    //  get { return (object) GetValue(ContentProperty); }
-    //  set { SetValue(ContentProperty, value); }
-    //}
-
-    //public static readonly DependencyProperty ContentProperty =
-    //  DependencyProperty.Register("Content",
-    //    typeof (object),
-    //    typeof (PanelSpaceEffect));
-
-
 		public PanelSpaceEffect()
 		{
 			this.InitializeComponent();

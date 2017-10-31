@@ -3,64 +3,15 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-  xmlns:Controls="clr-namespace:MapLoading.Controls"
+  xmlns:local="clr-namespace:MapLoading"
+  xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
   mc:Ignorable="d"
   x:Class="MapLoading.PanelSpace"
-  x:Name="UserControl">
-  <UserControl.Resources>
-    <Storyboard x:Key="Storyboard1">
-      <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="zoomAndPanControl">
-      	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-      	<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="50"/>
-      </DoubleAnimationUsingKeyFrames>
-      <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="zoomAndPanControl">
-      	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-      	<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="383"/>
-      </DoubleAnimationUsingKeyFrames>
-    </Storyboard>
-    <Style TargetType="{x:Type Controls:ZoomAndPanControl}">
-
-      <Setter
-        Property="Template">
-        <Setter.Value>
-
-          <ControlTemplate
-            TargetType="{x:Type Controls:ZoomAndPanControl}">
-
-            <Border
-              Background="{TemplateBinding Background}"
-              BorderBrush="{TemplateBinding BorderBrush}"
-              BorderThickness="{TemplateBinding BorderThickness}">
-              <ContentPresenter
-                x:Name="PART_Content"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top" />
-            </Border>
-          </ControlTemplate>
-        </Setter.Value>
-      </Setter>
-    </Style>
-
-  </UserControl.Resources>
-  <UserControl.Triggers>
-    <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-      <BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
-    </EventTrigger>
-  </UserControl.Triggers>
-
-  <Grid Width="500" Height="500" Background="Beige">
-    <Controls:ZoomAndPanControl x:Name="zoomAndPanControl" 
-                                Width="50" 
-                                Height="383" 
-                                ContentOffsetX="150"
-                                ContentOffsetY="0" 
-                                AnimationDuration="0"
-                                RenderTransformOrigin="0.5,0.5" ContentViewportWidth="50" HorizontalAlignment="Left" VerticalAlignment="Top" >
-      <Canvas HorizontalAlignment="Left" Height="383" Margin="0,0,0,0" Width="170">
+  x:Name="root">
+        <Canvas HorizontalAlignment="Left" Height="383" Margin="0,0,0,0" Width="170">
         <Path Data="M98,148 L264.5,148 264.5,518.5 247,536 98.5,536 z" Fill="#FFe05138" HorizontalAlignment="Left"
               Height="383" Width="170" Stretch="Fill" />
         <TextBlock Text="S" Foreground="Black" FontSize="347" FontFamily="Poppins Light" Margin="-14,-122,0,0" />
       </Canvas>
-    </Controls:ZoomAndPanControl>
-  </Grid>
+
 </UserControl>

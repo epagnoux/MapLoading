@@ -773,9 +773,9 @@ namespace MapLoading.Controls
         {
             ZoomAndPanControl c = (ZoomAndPanControl)d;
             double value = (double)baseValue;
-            double minOffsetX = 0.0;
-            double maxOffsetX = Math.Max(0.0, c.unScaledExtent.Width - c.constrainedContentViewportWidth);
-            value = Math.Min(Math.Max(value, minOffsetX), maxOffsetX);
+            //double minOffsetX = 0.0;
+            //double maxOffsetX = Math.Max(0.0, c.unScaledExtent.Width - c.constrainedContentViewportWidth);
+            //value = Math.Min(Math.Max(value, minOffsetX), maxOffsetX);
             return value;
         }
 
@@ -822,9 +822,9 @@ namespace MapLoading.Controls
         {
             ZoomAndPanControl c = (ZoomAndPanControl)d;
             double value = (double)baseValue;
-            double minOffsetY = 0.0;
-            double maxOffsetY = Math.Max(0.0, c.unScaledExtent.Height - c.constrainedContentViewportHeight);
-            value = Math.Min(Math.Max(value, minOffsetY), maxOffsetY);
+            //double minOffsetY = 0.0;
+            //double maxOffsetY = Math.Max(0.0, c.unScaledExtent.Height - c.constrainedContentViewportHeight);
+            //value = Math.Min(Math.Max(value, minOffsetY), maxOffsetY);
             return value;
         }
 

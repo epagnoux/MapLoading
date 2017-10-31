@@ -75,21 +75,21 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PanelSpace.xaml">
+    <Page Include="PanelSpaceEffect.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ParasitEffect.xaml">
+    <Page Include="PanelSpace.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PanelSpaceEffect.xaml.cs">
+      <DependentUpon>PanelSpaceEffect.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PanelSpace.xaml.cs">
       <DependentUpon>PanelSpace.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ParasitEffect.xaml.cs">
-      <DependentUpon>ParasitEffect.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
