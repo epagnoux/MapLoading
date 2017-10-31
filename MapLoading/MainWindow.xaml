@@ -10,10 +10,10 @@
       <RowDefinition Height="200"></RowDefinition>
       <RowDefinition></RowDefinition>
     </Grid.RowDefinitions>
-      <MapLoading:PanelSpaceEffect Grid.Row="1" HorizontalAlignment="Center">
-        <!--<MapLoading:PanelSpaceEffect.MyContent>
-          <MapLoading:PanelSpace />  
-        </MapLoading:PanelSpaceEffect.MyContent>-->
+      <MapLoading:PanelSpaceEffect Grid.Row="1" >
+        <!--<MapLoading:PanelSpaceEffect.CustomContent>
+        <MapLoading:PanelSpace />
+      </MapLoading:PanelSpaceEffect.CustomContent>-->
     </MapLoading:PanelSpaceEffect>
   </Grid>
 </Window>

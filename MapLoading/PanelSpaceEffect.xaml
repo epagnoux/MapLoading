@@ -174,9 +174,9 @@
         <TranslateTransform />
       </TransformGroup>
     </Controls:ZoomAndPanControl.RenderTransform>
-    <!--<ContentControl Content="{Binding MyContent,ElementName=root}" RenderTransformOrigin="0.5,0.5" />-->
-    <MapLoading:PanelSpace />
-  </Controls:ZoomAndPanControl>
+      <!--<ContentControl Content="{Binding CustomContent,ElementName=root}" />-->
+      <MapLoading:PanelSpace />
+    </Controls:ZoomAndPanControl>
   <Controls:ZoomAndPanControl x:Name="panelLeft"
                               Width="0"
                               Height="383"
@@ -192,9 +192,9 @@
         <TranslateTransform />
       </TransformGroup>
     </Controls:ZoomAndPanControl.RenderTransform>
-    <!--<ContentControl Content="{Binding MyContent,ElementName=root}" RenderTransformOrigin="0.5,0.5" />-->
-    <MapLoading:PanelSpace />
-  </Controls:ZoomAndPanControl>
+      <!--<ContentControl Content="{Binding CustomContent,ElementName=root}" />-->
+      <MapLoading:PanelSpace />
+    </Controls:ZoomAndPanControl>
 
     <Controls:ZoomAndPanControl x:Name="panelRight"
                               Width="0"
@@ -211,25 +211,8 @@
           <TranslateTransform />
         </TransformGroup>
       </Controls:ZoomAndPanControl.RenderTransform>
-      <!--<ContentControl Content="{Binding MyContent,ElementName=root}" RenderTransformOrigin="0.5,0.5" />-->
-      <MapLoading:PanelSpace />
+      <!--<ContentControl Content="{Binding CustomContent,ElementName=root}" />-->
+      <MapLoading:PanelSpace Template="Empty" />
     </Controls:ZoomAndPanControl>
-    <!--<Controls:ZoomAndPanControl x:Name="zoomAndPanControl2"
-                              Width="170"
-                              Height="43"
-                              ContentOffsetX="0"
-                              ContentOffsetY="0"
-                              AnimationDuration="0"
-                              ContentViewportWidth="0" HorizontalAlignment="Left" VerticalAlignment="Top">
-    <Controls:ZoomAndPanControl.RenderTransform>
-      <TransformGroup>
-        <ScaleTransform />
-        <SkewTransform />
-        <RotateTransform />
-        <TranslateTransform />
-      </TransformGroup>
-    </Controls:ZoomAndPanControl.RenderTransform>
-    <MapLoading:PanelSpace />
-  </Controls:ZoomAndPanControl>-->
   </Grid>
 </UserControl>

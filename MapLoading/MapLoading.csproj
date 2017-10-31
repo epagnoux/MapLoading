@@ -68,6 +68,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controls\AnimationHelper.cs" />
+    <Compile Include="PanelSpaceTemplateSelector.cs" />
     <Compile Include="Controls\MouseHandlingMode.cs" />
     <Compile Include="Controls\ZoomAndPanControl.cs" />
     <Compile Include="Controls\ZoomAndPanControl_IScrollInfo.cs" />
