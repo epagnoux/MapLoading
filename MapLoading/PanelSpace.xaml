@@ -3,15 +3,74 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:Controls="clr-namespace:MapLoading.Controls"
 	mc:Ignorable="d"
 	x:Class="MapLoading.PanelSpace"
 	x:Name="UserControl">
 	<UserControl.Resources>
 		<Storyboard x:Key="Storyboard1">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Controls:ZoomAndPanControl.ContentViewportWidth)" Storyboard.TargetName="zoomAndPanControl">
+				<EasingDoubleKeyFrame KeyTime="0" Value="170"/>
+			</DoubleAnimationUsingKeyFrames>
+			<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="zoomAndPanControl">
+				<EasingPointKeyFrame KeyTime="0" Value="0.5,0.5"/>
+			</PointAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Controls:ZoomAndPanControl.ViewportZoomFocusX)" Storyboard.TargetName="zoomAndPanControl">
+				<EasingDoubleKeyFrame KeyTime="0" Value="85"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Controls:ZoomAndPanControl.AnimationDuration)" Storyboard.TargetName="zoomAndPanControl">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+    <Style TargetType="{x:Type Controls:ZoomAndPanControl}">
+
+      <Setter
+        Property="Template">
+        <Setter.Value>
+
+          <ControlTemplate
+            TargetType="{x:Type Controls:ZoomAndPanControl}">
+
+            <Border
+              Background="{TemplateBinding Background}"
+              BorderBrush="{TemplateBinding BorderBrush}"
+              BorderThickness="{TemplateBinding BorderThickness}">
+
+              <!-- 
+                        The ContentPresenter is used to scale and offset the content of ZoomAndPanControl.
+                    
+                        A transforms computed from 'ContentScale', 'ContentOffsetX' and 'ContentOffsetY' are assigned 
+                        to the 'RenderTransform' property in OnApplyTemplate in ZoomAndPanControl.cs.
+                        
+                        The alignment is set to top-left.  This allows the content offset to be used to place
+                        the content in the center of the viewport when the viewport is bigger than the content.
+                        -->
+              <ContentPresenter
+                x:Name="PART_Content"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top" />
+
+            </Border>
+
+          </ControlTemplate>
+
+        </Setter.Value>
+      </Setter>
+
+    </Style>
+
+  </UserControl.Resources>
+	<UserControl.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+		</EventTrigger>
+	</UserControl.Triggers>
+	<!--<UserControl.Resources>
+		<Storyboard x:Key="Storyboard1">-->
 
 
 			
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="canvas1">
+			<!--<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="canvas1">
 				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="50"/>
 				<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="216.5"/>
@@ -51,9 +110,16 @@
 			<BeginStoryboard Storyboard="{StaticResource Storyboard2}"/>
 			<BeginStoryboard Storyboard="{StaticResource Storyboard3}"/>
 		</EventTrigger>
-	</UserControl.Triggers>
-
-	<Grid x:Name="LayoutRoot" Height="383" Width="170" >
+	</UserControl.Triggers>-->
+	<Grid Width="500" Height="500" Background="Beige" >
+      <Controls:ZoomAndPanControl x:Name="zoomAndPanControl" Width="50" Height="150" ContentOffsetX="387" ContentOffsetY="170" ViewportZoomFocusY="50" AnimationDuration="0"  RenderTransformOrigin="0.5,0.5" ContentScale="1" >
+        <Canvas HorizontalAlignment="Left" Height="383" Margin="0,0,0,0"  Width="170">
+          <Path Data="M98,148 L264.5,148 264.5,518.5 247,536 98.5,536 z" Fill="#FFe05138" HorizontalAlignment="Left" Height="383" Width="170" Stretch="Fill" />
+          <TextBlock Text="S" Foreground="Black" FontSize="347" FontFamily="Poppins Light" Margin="-14,-122,0,0" />
+        </Canvas>
+        </Controls:ZoomAndPanControl>
+	   </Grid>
+        <!--<Grid x:Name="LayoutRoot" Height="383" Width="170" >
 		<Canvas x:Name="canvas1" ClipToBounds="True" Width="170"  Height="383" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" d:IsHidden="True" Visibility="Collapsed" >
 			<Canvas.RenderTransform>
 				<TransformGroup>
@@ -97,6 +163,6 @@
 			</Canvas>
 		</Canvas>
 
-	</Grid>
+	</Grid>-->
   
 </UserControl>

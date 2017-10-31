@@ -19,16 +19,16 @@ namespace MapLoading
 	public partial class ParasitEffect : UserControl
 	{
 
-	  public object Content
-	  {
-	    get { return (object) GetValue(ContentProperty); }
-	    set { SetValue(ContentProperty, value); }
-	  }
+    //public object Content
+    //{
+    //  get { return (object) GetValue(ContentProperty); }
+    //  set { SetValue(ContentProperty, value); }
+    //}
 
-	  public static readonly DependencyProperty ContentProperty =
-	    DependencyProperty.Register("Content",
-	      typeof (object),
-	      typeof (ParasitEffect));
+    //public static readonly DependencyProperty ContentProperty =
+    //  DependencyProperty.Register("Content",
+    //    typeof (object),
+    //    typeof (ParasitEffect));
 
 
 		public ParasitEffect()
