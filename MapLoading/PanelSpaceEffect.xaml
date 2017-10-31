@@ -4,26 +4,37 @@
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:Controls="clr-namespace:MapLoading.Controls"
+  xmlns:MapLoading="clr-namespace:MapLoading"
   mc:Ignorable="d"
   x:Class="MapLoading.PanelSpaceEffect"
-  x:Name="UserControl">
+  x:Name="root">
   <UserControl.Resources>
-    <Storyboard x:Key="Storyboard1">
-      <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="zoomAndPanControl">
-      	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-      	<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="50"/>
+    <Storyboard x:Key="Storyboard1" >
+      <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
+                                     Storyboard.TargetName="zoomAndPanControl">
+        <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="50" />
       </DoubleAnimationUsingKeyFrames>
-      <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="zoomAndPanControl">
-      	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-      	<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="383"/>
+      <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)"
+                                     Storyboard.TargetName="zoomAndPanControl">
+        <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="383" />
       </DoubleAnimationUsingKeyFrames>
-      <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Controls:ZoomAndPanControl.ContentViewportWidth)" Storyboard.TargetName="zoomAndPanControl">
-      	<EasingDoubleKeyFrame KeyTime="0" Value="170"/>
-      	<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="170"/>
+      <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Controls:ZoomAndPanControl.ContentViewportWidth)"
+                                     Storyboard.TargetName="zoomAndPanControl">
+        <EasingDoubleKeyFrame KeyTime="0" Value="170" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="170" />
       </DoubleAnimationUsingKeyFrames>
-      <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Controls:ZoomAndPanControl.ContentViewportHeight)" Storyboard.TargetName="zoomAndPanControl">
-      	<EasingDoubleKeyFrame KeyTime="0" Value="383"/>
-      	<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="383"/>
+      <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Controls:ZoomAndPanControl.ContentViewportHeight)"
+                                     Storyboard.TargetName="zoomAndPanControl">
+        <EasingDoubleKeyFrame KeyTime="0" Value="383" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="383" />
+      </DoubleAnimationUsingKeyFrames>
+      <DoubleAnimationUsingKeyFrames
+        Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)"
+        Storyboard.TargetName="zoomAndPanControl">
+        <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="120" />
       </DoubleAnimationUsingKeyFrames>
     </Storyboard>
     <Style TargetType="{x:Type Controls:ZoomAndPanControl}">
@@ -38,7 +49,7 @@
             <Border
               Background="{TemplateBinding Background}"
               BorderBrush="{TemplateBinding BorderBrush}"
-              BorderThickness="{TemplateBinding BorderThickness}">
+              BorderThickness="{TemplateBinding BorderThickness}" HorizontalAlignment="Left" VerticalAlignment="Top">
               <ContentPresenter
                 x:Name="PART_Content"
                 HorizontalAlignment="Left"
@@ -55,20 +66,21 @@
       <BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
     </EventTrigger>
   </UserControl.Triggers>
-
-  <Grid Width="500" Height="500" Background="Beige">
-    <Controls:ZoomAndPanControl x:Name="zoomAndPanControl" 
-                                Width="50" 
-                                Height="383" 
-                                ContentOffsetX="120"
-                                ContentOffsetY="0" 
-                                AnimationDuration="1"
-                                ContentViewportWidth="170" HorizontalAlignment="Left" VerticalAlignment="Top"  >
-      <Canvas Height="383" Margin="0,0,0,0" Width="270">
-        <Path Data="M98,148 L264.5,148 264.5,518.5 247,536 98.5,536 z" Fill="#FFe05138" HorizontalAlignment="Left"
-              Height="383" Width="170" Stretch="Fill" />
-        <TextBlock Text="S" Foreground="Black" FontSize="347" FontFamily="Poppins Light" Canvas.Left="-14" Canvas.Top="-120" />
-      </Canvas>
-    </Controls:ZoomAndPanControl>
-  </Grid>
+  <Controls:ZoomAndPanControl x:Name="zoomAndPanControl"
+                              Width="50"
+                              Height="383"
+                              ContentOffsetX="120"
+                              ContentOffsetY="0"
+                              AnimationDuration="1"
+                              ContentViewportWidth="170" HorizontalAlignment="Left" VerticalAlignment="Top">
+    <Controls:ZoomAndPanControl.RenderTransform>
+      <TransformGroup>
+        <ScaleTransform />
+        <SkewTransform />
+        <RotateTransform />
+        <TranslateTransform />
+      </TransformGroup>
+    </Controls:ZoomAndPanControl.RenderTransform>
+    <ContentControl Content="{Binding Content,ElementName=root}" RenderTransformOrigin="0.5,0.5" />
+  </Controls:ZoomAndPanControl>
 </UserControl>

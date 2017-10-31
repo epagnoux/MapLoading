@@ -8,10 +8,25 @@
   mc:Ignorable="d"
   x:Class="MapLoading.PanelSpace"
   x:Name="root">
-        <Canvas HorizontalAlignment="Left" Height="383" Margin="0,0,0,0" Width="170">
-        <Path Data="M98,148 L264.5,148 264.5,518.5 247,536 98.5,536 z" Fill="#FFe05138" HorizontalAlignment="Left"
-              Height="383" Width="170" Stretch="Fill" />
-        <TextBlock Text="S" Foreground="Black" FontSize="347" FontFamily="Poppins Light" Margin="-14,-122,0,0" />
-      </Canvas>
-
+  <UserControl.Resources>
+    <Storyboard x:Key="Storyboard1">
+      <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock">
+        <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1" />
+      </DoubleAnimationUsingKeyFrames>
+    </Storyboard>
+  </UserControl.Resources>
+  <UserControl.Triggers>
+    <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+      <BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
+    </EventTrigger>
+  </UserControl.Triggers>
+  
+  <Canvas Height="383" Width="170" >
+    <Path Data="M98,148 L264.5,148 264.5,518.5 247,536 98.5,536 z" Fill="#FFe05138" HorizontalAlignment="Left"
+          Height="383" Width="170" Stretch="Fill" />
+    <TextBlock x:Name="textBlock" Text="S" Foreground="Black" FontSize="347" FontFamily="Poppins Light"
+               Margin="-14,-122,0,0" />
+  </Canvas>
 </UserControl>

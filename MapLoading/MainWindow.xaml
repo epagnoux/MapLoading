@@ -5,100 +5,13 @@
   xmlns:MapLoading="clr-namespace:MapLoading"
   x:Class="MapLoading.MainWindow"
   Title="MainWindow">
-  <Window.Resources>
-    <Style TargetType="{x:Type Controls:ZoomAndPanControl}">
-
-      <Setter
-        Property="Template">
-        <Setter.Value>
-
-          <ControlTemplate
-            TargetType="{x:Type Controls:ZoomAndPanControl}">
-
-            <Border
-              Background="{TemplateBinding Background}"
-              BorderBrush="{TemplateBinding BorderBrush}"
-              BorderThickness="{TemplateBinding BorderThickness}">
-
-              <!-- 
-                        The ContentPresenter is used to scale and offset the content of ZoomAndPanControl.
-                    
-                        A transforms computed from 'ContentScale', 'ContentOffsetX' and 'ContentOffsetY' are assigned 
-                        to the 'RenderTransform' property in OnApplyTemplate in ZoomAndPanControl.cs.
-                        
-                        The alignment is set to top-left.  This allows the content offset to be used to place
-                        the content in the center of the viewport when the viewport is bigger than the content.
-                        -->
-              <ContentPresenter
-                x:Name="PART_Content"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top" />
-
-            </Border>
-
-          </ControlTemplate>
-
-        </Setter.Value>
-      </Setter>
-
-    </Style>
-
-  </Window.Resources>
-  <Grid Background="#FF292929">
-    <!--<local:ParasitEffect>
-      <local:ParasitEffect.Content>
-        <Image Source="pack://siteoforigin:,,,/bk.png" />
-      </local:ParasitEffect.Content>
-    </local:ParasitEffect>-->
-    <!--<ScrollViewer
-      CanContentScroll="True"
-        VerticalScrollBarVisibility="Hidden"
-        HorizontalScrollBarVisibility="Hidden">-->
-      <!--<Controls:ZoomAndPanControl
-         x:Name="zoomAndPanControl"
-            Background="LightGray"
-         MouseDown="zoomAndPanControl_MouseDown"
-            MouseUp="zoomAndPanControl_MouseUp"
-            MouseMove="zoomAndPanControl_MouseMove"
-            MouseWheel="zoomAndPanControl_MouseWheel">-->
-      <MapLoading:PanelSpaceEffect x:Name="content"></MapLoading:PanelSpaceEffect>
-        <!--<Canvas
-          x:Name="content"
-          Width="2000"
-          Height="2000"
-          Background="White">
-
-          <Rectangle
-            Canvas.Left="50"
-            Canvas.Top="50"
-            Width="80"
-            Height="150"
-            Fill="Blue"
-            Cursor="Hand" />
-          <Rectangle
-            Canvas.Left="550"
-            Canvas.Top="350"
-            Width="80"
-            Height="150"
-            Fill="Green"
-            Cursor="Hand" />
-          <Rectangle
-            Canvas.Left="850"
-            Canvas.Top="850"
-            Width="30"
-            Height="20"
-            Fill="Purple"
-            Cursor="Hand" />
-          <Rectangle
-            Canvas.Left="1850"
-            Canvas.Top="1850"
-            Width="80"
-            Height="150"
-            Fill="Red"
-            Cursor="Hand" />
-
-        </Canvas>-->
-      <!--</Controls:ZoomAndPanControl>-->
-    <!--</ScrollViewer>-->
+  <Grid Background="#FF292929" >
+    <Grid.RowDefinitions>
+      <RowDefinition Height="200"></RowDefinition>
+      <RowDefinition></RowDefinition>
+    </Grid.RowDefinitions>
+      <MapLoading:PanelSpaceEffect Grid.Row="1" HorizontalAlignment="Center">
+        <MapLoading:PanelSpace />
+    </MapLoading:PanelSpaceEffect>
   </Grid>
 </Window>
