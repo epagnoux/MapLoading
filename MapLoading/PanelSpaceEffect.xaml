@@ -45,13 +45,14 @@
 
       <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
                                      Storyboard.TargetName="panelCenter">
-        <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0" />
-        <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="130" />
+        <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+      	<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="130" />
       </DoubleAnimationUsingKeyFrames>
       <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)"
                                      Storyboard.TargetName="panelCenter">
-        <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="0" />
         <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="43" />
+
         <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="383" />
       </DoubleAnimationUsingKeyFrames>
       <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Controls:ZoomAndPanControl.ContentViewportWidth)"
@@ -61,8 +62,7 @@
       </DoubleAnimationUsingKeyFrames>
       <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Controls:ZoomAndPanControl.ContentViewportHeight)"
                                      Storyboard.TargetName="panelCenter">
-        <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="0" />
-        <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="43" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="43" />
         <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="383" />
       </DoubleAnimationUsingKeyFrames>
       <DoubleAnimationUsingKeyFrames
@@ -73,8 +73,8 @@
       </DoubleAnimationUsingKeyFrames>
       <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="panelCenter">
         <EasingThicknessKeyFrame KeyTime="0" Value="0"/>
-        <EasingThicknessKeyFrame KeyTime="0:0:0.2" Value="0,-7,0,0"/>
-        <EasingThicknessKeyFrame KeyTime="0:0:1.1" Value="0,-7,0,0"/>
+        <EasingThicknessKeyFrame KeyTime="0:0:0.2" Value="0,-13,0,0"/>
+        <EasingThicknessKeyFrame KeyTime="0:0:1.1" Value="0,-13,0,0"/>
         <EasingThicknessKeyFrame KeyTime="0:0:1.2" Value="0,3,0,0"/>
       </ThicknessAnimationUsingKeyFrames>
 
