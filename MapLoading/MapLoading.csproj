@@ -55,7 +55,7 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="Generic.xaml">
+    <Page Include="TextWritingEffect2.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -68,6 +68,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controls\AnimationHelper.cs" />
+    <Compile Include="Converters\StringToNewLineConverter.cs" />
+    <Compile Include="TextWritingEffect.cs" />
+    <Compile Include="TextWritingEffect2.xaml.cs">
+      <DependentUpon>TextWritingEffect2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PanelSpaceTemplateSelector.cs" />
     <Compile Include="Controls\MouseHandlingMode.cs" />
     <Compile Include="Controls\ZoomAndPanControl.cs" />
@@ -76,7 +81,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PanelSpaceEffect.xaml">
+    <Page Include="PanelSpaceFractureEffect.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -84,10 +89,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PanelSpaceEffect.xaml.cs">
-      <DependentUpon>PanelSpaceEffect.xaml</DependentUpon>
+    <Compile Include="PanelSpaceFractureEffect.xaml.cs">
+      <DependentUpon>PanelSpaceFractureEffect.xaml</DependentUpon>
     </Compile>
     <Compile Include="PanelSpace.xaml.cs">
       <DependentUpon>PanelSpace.xaml</DependentUpon>

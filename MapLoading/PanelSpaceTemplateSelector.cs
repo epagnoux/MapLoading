@@ -12,12 +12,12 @@ namespace MapLoading
     public override DataTemplate SelectTemplate(object item, DependencyObject container)
     {
       if (item != null)
-        switch ((PanelSpace.PanelTemplate)item)
+        switch ((PanelSpace.PanelLayout)item)
         {
-          case PanelSpace.PanelTemplate.Empty:
+          case PanelSpace.PanelLayout.Empty:
             return EmptyTemplate;
 
-          case PanelSpace.PanelTemplate.Default:
+          case PanelSpace.PanelLayout.Default:
             return DefaultTemplate;
           
           default:

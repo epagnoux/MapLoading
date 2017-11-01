@@ -5,15 +5,15 @@ namespace MapLoading
 {
   public partial class PanelSpace : UserControl
   {
-    public enum PanelTemplate
+    public enum PanelLayout
     {
       Default,
       Empty,
     }
 
-    public static readonly DependencyProperty TemplateProperty =
-      DependencyProperty.Register("Template",
-        typeof (PanelTemplate),
+    public static readonly DependencyProperty LayoutProperty =
+      DependencyProperty.Register("Layout",
+        typeof (PanelLayout),
         typeof (PanelSpace));
 
 
@@ -22,10 +22,10 @@ namespace MapLoading
       InitializeComponent();
     }
 
-    public PanelTemplate Template
+    public PanelLayout Layout
     {
-      get { return (PanelTemplate) GetValue(TemplateProperty); }
-      set { SetValue(TemplateProperty, value); }
+      get { return (PanelLayout) GetValue(LayoutProperty); }
+      set { SetValue(LayoutProperty, value); }
     }
   }
 }

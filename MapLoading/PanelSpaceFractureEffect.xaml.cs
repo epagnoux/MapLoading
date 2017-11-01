@@ -4,17 +4,17 @@ using System.Windows.Controls;
 namespace MapLoading
 {
   /// <summary>
-  ///   Interaction logic for PanelSpaceEffect.xaml
+  ///   Interaction logic for PanelSpaceFractureEffect.xaml
   /// </summary>
-  public partial class PanelSpaceEffect : UserControl
+  public partial class PanelSpaceFractureEffect : UserControl
   {
     public static readonly DependencyProperty CustomContentProperty =
       DependencyProperty.Register("CustomContent",
         typeof (object),
-        typeof (PanelSpaceEffect));
+        typeof (PanelSpaceFractureEffect));
 
 
-    public PanelSpaceEffect()
+    public PanelSpaceFractureEffect()
     {
       InitializeComponent();
     }

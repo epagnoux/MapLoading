@@ -6,10 +6,10 @@
   xmlns:Controls="clr-namespace:MapLoading.Controls"
   xmlns:MapLoading="clr-namespace:MapLoading"
   mc:Ignorable="d"
-  x:Class="MapLoading.PanelSpaceEffect"
+  x:Class="MapLoading.PanelSpaceFractureEffect"
   x:Name="root">
   <UserControl.Resources>
-    <Storyboard x:Key="Storyboard1" RepeatBehavior="Forever" >
+    <Storyboard x:Key="Storyboard1">
      
 
 
@@ -18,27 +18,27 @@
       <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
                                      Storyboard.TargetName="panelLeft">
       	<EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="0" />
-      	<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="72" />
+      	<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="72" />
       </DoubleAnimationUsingKeyFrames>
       <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)"
                                      Storyboard.TargetName="panelLeft">
         <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="0" />
         <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="43" />
-        <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="383" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="383" />
       </DoubleAnimationUsingKeyFrames>
       <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Controls:ZoomAndPanControl.ContentViewportWidth)"
                                      Storyboard.TargetName="panelLeft">
       	<EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="170" />
-      	<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="170" />
+      	<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="170" />
       </DoubleAnimationUsingKeyFrames>
       <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Controls:ZoomAndPanControl.ContentViewportHeight)"
                                      Storyboard.TargetName="panelLeft">
       	<EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="383" />
-      	<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="383" />
+      	<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="383" />
       </DoubleAnimationUsingKeyFrames>
       <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Controls:ZoomAndPanControl.ContentOffsetX)" Storyboard.TargetName="panelLeft">
       	<EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="0"/>
-      	<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+      	<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
       </DoubleAnimationUsingKeyFrames>
 
 
@@ -46,39 +46,39 @@
       <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
                                      Storyboard.TargetName="panelCenter">
         <EasingDoubleKeyFrame KeyTime="0" Value="130" />
-        <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="130" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="130" />
       </DoubleAnimationUsingKeyFrames>
       <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)"
                                      Storyboard.TargetName="panelCenter">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="0" />
         <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="43" />
-        <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="383" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="383" />
       </DoubleAnimationUsingKeyFrames>
       <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Controls:ZoomAndPanControl.ContentViewportWidth)"
                                      Storyboard.TargetName="panelCenter">
         <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="170" />
-        <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="170" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="170" />
       </DoubleAnimationUsingKeyFrames>
       <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Controls:ZoomAndPanControl.ContentViewportHeight)"
                                      Storyboard.TargetName="panelCenter">
         <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="43" />
-        <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="383" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="383" />
       </DoubleAnimationUsingKeyFrames>
       <DoubleAnimationUsingKeyFrames
         Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)"
         Storyboard.TargetName="panelCenter">
         <EasingDoubleKeyFrame KeyTime="0" Value="0" />
-        <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="70" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="70" />
       </DoubleAnimationUsingKeyFrames>
       <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="panelCenter">
         <EasingThicknessKeyFrame KeyTime="0" Value="0"/>
         <EasingThicknessKeyFrame KeyTime="0:0:0.2" Value="0,-7,0,0"/>
         <EasingThicknessKeyFrame KeyTime="0:0:0.4" Value="0,-7,0,0"/>
-        <EasingThicknessKeyFrame KeyTime="0:0:0.5" Value="0,3,0,0"/>
+        <EasingThicknessKeyFrame KeyTime="0:0:0.6" Value="0,3,0,0"/>
       </ThicknessAnimationUsingKeyFrames>
       <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="panelCenter">
       	<EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
-      	<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-3"/>
+      	<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="-3"/>
       </DoubleAnimationUsingKeyFrames>
 
 	    
@@ -87,24 +87,24 @@
         <EasingDoubleKeyFrame KeyTime="0" Value="65"/>
         	<EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="65"/>
         	<EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="60" />
-        	<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0" />
+        	<EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0" />
       </DoubleAnimationUsingKeyFrames>
       <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)"
                                      Storyboard.TargetName="panelRight">
         <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="0" />
         <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="43" />
-        <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="383" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="383" />
       </DoubleAnimationUsingKeyFrames>
       <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Controls:ZoomAndPanControl.ContentViewportWidth)"
                                      Storyboard.TargetName="panelRight">
         <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="170" />
-        <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0" />
       </DoubleAnimationUsingKeyFrames>
       <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Controls:ZoomAndPanControl.ContentViewportHeight)"
                                      Storyboard.TargetName="panelRight">
         <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="0" />
         <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="43" />
-        <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="383" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="383" />
       </DoubleAnimationUsingKeyFrames>
       <DoubleAnimationUsingKeyFrames
         Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)"
@@ -112,12 +112,11 @@
         <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="120"/>
         <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="105"/>
         <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="111"/>
-        <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="170" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="170" />
       </DoubleAnimationUsingKeyFrames>
 
 	        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Controls:ZoomAndPanControl.ContentOffsetX)" Storyboard.TargetName="panelRight">
       	<EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="0"/>
-      	<EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="170"/>
       </DoubleAnimationUsingKeyFrames>
 
 
@@ -128,29 +127,7 @@
       </DoubleAnimationUsingKeyFrames>-->
    
     </Storyboard>
-    <Style TargetType="{x:Type Controls:ZoomAndPanControl}">
-
-      <Setter
-        Property="Template">
-        <Setter.Value>
-
-          <ControlTemplate
-            TargetType="{x:Type Controls:ZoomAndPanControl}">
-
-            <Border
-              Background="{TemplateBinding Background}"
-              BorderBrush="{TemplateBinding BorderBrush}"
-              BorderThickness="{TemplateBinding BorderThickness}" HorizontalAlignment="Left" VerticalAlignment="Top">
-              <ContentPresenter
-                x:Name="PART_Content"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top" />
-            </Border>
-          </ControlTemplate>
-        </Setter.Value>
-      </Setter>
-    </Style>
-
+   
   </UserControl.Resources>
   <UserControl.Triggers>
     <EventTrigger RoutedEvent="FrameworkElement.Loaded">
@@ -212,7 +189,7 @@
         </TransformGroup>
       </Controls:ZoomAndPanControl.RenderTransform>
       <!--<ContentControl Content="{Binding CustomContent,ElementName=root}" />-->
-      <MapLoading:PanelSpace Template="Empty" />
+      <MapLoading:PanelSpace Layout="Empty" />
     </Controls:ZoomAndPanControl>
   </Grid>
 </UserControl>

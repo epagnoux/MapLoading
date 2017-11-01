@@ -1,19 +1,84 @@
 ﻿<Window
   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-  xmlns:Controls="clr-namespace:MapLoading.Controls"
   xmlns:MapLoading="clr-namespace:MapLoading"
   x:Class="MapLoading.MainWindow"
   Title="MainWindow">
+  <Window.Resources>
+    <ResourceDictionary>
+    <ResourceDictionary.MergedDictionaries>
+      <ResourceDictionary Source="/MapLoading;component/Themes/Generic.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Window.Resources>
   <Grid Background="#FF292929" >
     <Grid.RowDefinitions>
       <RowDefinition Height="200"></RowDefinition>
       <RowDefinition></RowDefinition>
     </Grid.RowDefinitions>
-      <MapLoading:PanelSpaceEffect Grid.Row="1" >
-        <!--<MapLoading:PanelSpaceEffect.CustomContent>
+      <!--<MapLoading:PanelSpaceFractureEffect Grid.Row="1" >-->
+      <!--<MapLoading:PanelSpaceFractureEffect.CustomContent>
         <MapLoading:PanelSpace />
-      </MapLoading:PanelSpaceEffect.CustomContent>-->
-    </MapLoading:PanelSpaceEffect>
+      </MapLoading:PanelSpaceFractureEffect.CustomContent>-->
+    <!--</MapLoading:PanelSpaceFractureEffect>-->
+    <StackPanel>
+      <Button Content="aaa" Click="ButtonBase_OnClick" Width="200" Height="54"></Button>
+      <TextBox x:Name="textBox" Width="500" Height="500" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" >
+      <TextBox.Text>
+
+        Un camion s'est engouffré dans une piste cyclable à New York peu après 15 h, &#x0a;mardi. Après avoir percuté plusieurs personnes, faisant huit morts et plusieurs blessés, le conducteur est sorti de son camion en criant, deux armes dans les mains. Selon les autorités, il s'agit d'un attentat terroriste.
+
+
+Radio-Canada avec Associated Press, Reuters et Agence France-Presse
+
+
+
+
+
+      </TextBox.Text>
+      
+    </TextBox>
+    </StackPanel>
+    <MapLoading:TextWritingEffect x:Name="writingEffect" ChrunkLength="20" Speed="60" Grid.Row="1" FontSize="12" Foreground="White" Width="800">
+    </MapLoading:TextWritingEffect>
+   
+    <!--<MapLoading:TextWritingEffect2 ChrunkLength="10" Width="300" Delay="30" Grid.Row="1">
+      <MapLoading:TextWritingEffect2.Text>
+
+        Un camion s'est engouffré dans une piste cyclable à New York peu après 15 h, mardi. Après avoir percuté plusieurs personnes, faisant huit morts et plusieurs blessés, le conducteur est sorti de son camion en criant, deux armes dans les mains. Selon les autorités, il s'agit d'un attentat terroriste.
+
+
+Radio-Canada avec Associated Press, Reuters et Agence France-Presse
+
+
+
+« En fonction des informations dont nous disposons, nous pouvons effectivement affirmer qu'il s'agit de terrorisme », a déclaré le maire de la métropole américaine, Bill de Blasio, lors d'un point de presse.
+
+« C'est une journée très difficile pour New York », a ajouté celui qui jouera son avenir politique aux urnes dimanche, lors des élections municipales.
+
+D'après le commissaire James O'Neill, de la police de New York, le conducteur, qui serait d'origine moyen-orientale, aurait « effectué une déclaration associée à des actes terroristes » après avoir quitté la cabine de pilotage du camion.
+
+« La méthode opératoire - le camion, l'attaque de style "loup solitaire" - porte à croire qu'un acte terroriste a été commis, similaire à ce qui s'est produit à Nice, en France, et ailleurs », a mentionné le commissaire O'Neill.
+
+On ignore pour l'instant l'état de santé de l'assaillant, un homme de 29 ans dont le nom serait Sayfullo Saipov. Des sources policières ont indiqué, mardi en début de soirée, qu'il subissait une opération chirurgicale et qu'il devrait s'en tirer.
+
+Il a été arrêté par la police après avoir été atteint par une balle au ventre. Les autorités ont aussi récupéré sur place un fusil à peinture et un fusil à plomb.
+
+Le suspect possédait un permis de conduire délivré par l'État de la Floride, mais aurait pu résider dans le New Jersey.
+
+L'individu serait originaire de l'Ouzbékistan, et serait arrivé aux États-Unis en 2010.
+
+Six personnes ont été déclarées mortes sur les lieux de l'impact. Deux autres ont été transportées à l'hôpital, où leur décès a été constaté. Onze autres personnes ont été hospitalisées pour des blessures graves.
+
+Impossible, pour l'instant, de connaître précisément l'identité des victimes, mais la Belgique a annoncé la mort de l'un de ses ressortissants et compterait trois citoyens parmi les blessés, alors que Buenos Aires a évoqué « plusieurs morts » argentins.
+
+Toujours selon les autorités, le véhicule employé, un camion de location de la chaîne Home Depot, s'est engagé sur une piste cyclable de West Street, à quelques coins de rue du mémorial du World Trade Center, et a fauché plus d'une dizaine de personnes avant d'entrer en collision avec un autobus scolaire, laissant derrière lui une série de bicyclettes tordues.
+
+Ledit camion aurait été loué une heure avant l'attaque, ont fait savoir des responsables.
+
+« Justice sera faite »
+
+      </MapLoading:TextWritingEffect2.Text>
+    </MapLoading:TextWritingEffect2>-->
   </Grid>
 </Window>

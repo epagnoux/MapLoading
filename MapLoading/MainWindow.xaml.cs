@@ -258,5 +258,9 @@ namespace MapLoading
         //  e.Handled = true;
         //}
 
+      private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+          writingEffect.Text = textBox.Text;
+        }
     }
 }

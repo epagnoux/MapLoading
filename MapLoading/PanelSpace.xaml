@@ -12,7 +12,7 @@
       <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock">
         <EasingDoubleKeyFrame KeyTime="0" Value="0" />
         <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0" />
-        <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1" />
       </DoubleAnimationUsingKeyFrames>
     </Storyboard>
 
@@ -29,14 +29,19 @@
         </EventTrigger>
       </DataTemplate.Triggers>
     </DataTemplate>
-    <DataTemplate x:Key="PanelSpace_EmptyTemplate" />
+    <DataTemplate x:Key="PanelSpace_EmptyTemplate" >
+		      <Canvas Height="383" Width="170">
+        <Path Data="M98,148 L264.5,148 264.5,518.5 247,536 98.5,536 z" Fill="#FFe05138" HorizontalAlignment="Left"
+              Height="383" Width="170" Stretch="Fill" />
+      </Canvas>
+		</DataTemplate>
 
     <local:PanelSpaceTemplateSelector x:Key="PanelSpaceTemplateSelector"
                                       DefaultTemplate="{StaticResource PanelSpace_DefaultTemplate}"
                                       EmptyTemplate="{StaticResource PanelSpace_EmptyTemplate}" />
   </UserControl.Resources>
   <ContentControl x:Name="contentControl"
-                  Content="{Binding Template, ElementName=root}"
+                  Content="{Binding Layout, ElementName=root}"
                   Margin="1,0,0,0"
                   ContentTemplateSelector="{StaticResource PanelSpaceTemplateSelector}" />
 
