@@ -17,12 +17,16 @@
     </Storyboard>
 
     <DataTemplate x:Key="PanelSpace_DefaultTemplate">
-      <Canvas Height="383" Width="170">
+      <Grid Height="383" Width="170">
         <Path Data="M98,148 L264.5,148 264.5,518.5 247,536 98.5,536 z" Fill="#FFe05138" HorizontalAlignment="Left"
               Height="383" Width="170" Stretch="Fill" />
-        <TextBlock x:Name="textBlock" Text="S" Foreground="Black" FontSize="347" FontFamily="Poppins Light"
-                   Margin="-14,-122,0,0" />
-      </Canvas>
+        <Viewbox RenderTransformOrigin="0.5,0.5" Stretch="Uniform" Width="160" HorizontalAlignment="Center">
+          <Border Background="Blue">
+        <TextBlock x:Name="textBlock" Text="7" Foreground="Black" FontSize="335" FontFamily="Poppins Light"
+                   Margin="0,-122,0,0" />
+          </Border>
+        </Viewbox>
+      </Grid>
       <DataTemplate.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
           <BeginStoryboard Storyboard="{StaticResource Storyboard1}" />

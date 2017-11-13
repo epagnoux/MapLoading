@@ -6,8 +6,7 @@
     xmlns:Converters="clr-namespace:MapLoading.Converters">
   <Converters:StringToNewLineConverter x:Key="StringToNewLineConverter"/>
   <Style TargetType="{x:Type Controls:ZoomAndPanControl}">
-
-    <Setter
+      <Setter
         Property="Template">
       <Setter.Value>
 
