@@ -86,7 +86,7 @@
     <Compile Include="Converters\DoubleToDecreaseConverter.cs" />
     <Compile Include="Converters\DoubleToIncreaseConverter.cs" />
     <Compile Include="Converters\StringToNewLineConverter.cs" />
-    <Compile Include="TextWritingEffect.cs" />
+    <Compile Include="Controls\TextWritingEffect.cs" />
     <Compile Include="TextWritingEffect2.xaml.cs">
       <DependentUpon>TextWritingEffect2.xaml</DependentUpon>
     </Compile>

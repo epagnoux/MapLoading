@@ -4,19 +4,18 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Animation;
 using System.Windows.Threading;
-using MapLoading.Converters;
 
-namespace MapLoading
+namespace MapLoading.Controls
 {
-  
   public class TextWritingEffect : Control
   {
     public static readonly DependencyProperty TextProperty =
       DependencyProperty.Register("Text",
         typeof (string),
         typeof (TextWritingEffect),
-        new PropertyMetadata(default(string),OnTextChanged));
+        new PropertyMetadata(default(string), OnTextChanged));
 
 
     public static readonly DependencyProperty ChrunkLengthProperty =
@@ -26,26 +25,31 @@ namespace MapLoading
         new PropertyMetadata(1, OnChrunkLengthChanged));
 
 
-    public static readonly DependencyProperty SpeedProperty =
-      DependencyProperty.Register("Speed",
-        typeof (int),
+    public static readonly DependencyProperty DurationProperty =
+      DependencyProperty.Register("Duration",
+        typeof(int),
         typeof (TextWritingEffect),
-        new PropertyMetadata(30, OnDelayChanged));
+        new PropertyMetadata(default(int), OnDurationChanged));
 
     private List<string> mChrunkList;
     private TextBlock mTextBlock;
     private DispatcherTimer mTimer;
 
+    public TextWritingEffect()
+    {
+      mTimer = new DispatcherTimer();
+      mTimer.Tick += TimerTick;
+    }
     static TextWritingEffect()
     {
       DefaultStyleKeyProperty.OverrideMetadata(typeof (TextWritingEffect),
         new FrameworkPropertyMetadata(typeof (TextWritingEffect)));
     }
 
-    public int Speed
+    public int Duration
     {
-      get { return (int) GetValue(SpeedProperty); }
-      set { SetValue(SpeedProperty, value); }
+      get { return (int)GetValue(DurationProperty); }
+      set { SetValue(DurationProperty, value); }
     }
 
 
@@ -61,18 +65,19 @@ namespace MapLoading
       set { SetValue(ChrunkLengthProperty, value); }
     }
 
-   
 
-    private static void OnDelayChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    private static void OnDurationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
       var wSender = (TextWritingEffect) d;
-      //wSender.UpdateDelay((int) e.NewValue);
+      //wSender.UpdateDuration((int) e.NewValue);
     }
 
-    private void UpdateDelay(int value)
+    private void UpdateDuration()
     {
-      mTimer.Interval = TimeSpan.FromMilliseconds(Speed);
-      UpdateTextList();
+      //var wNumberTick = Duration.TotalMilliseconds > 0.0 && Text.Length > 0 ? (Duration.TotalMilliseconds / Text.Length ): 0.0;
+      //ChrunkLength = wNumberTick > 0 ? Math.Max(1, (int)Math.Floor(Text.Length / wNumberTick)) : Text.Length;
+      //mTimer.Interval = wNumberTick > 0 ? TimeSpan.FromMilliseconds(Duration.TotalMilliseconds / wNumberTick) : Duration; // 20 Milliseconds pour un caractere
+      mTimer.Interval = TimeSpan.FromMilliseconds(Duration); // 20 Milliseconds pour un caractere
     }
 
     private static void OnChrunkLengthChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -93,6 +98,7 @@ namespace MapLoading
       if (Text != null)
       {
         mTextBlock.Text = string.Empty;
+        UpdateDuration();
         mChrunkList = SplitBy(Text, ChrunkLength).ToList();
         UpdateText();
         mTimer.Start();
@@ -106,7 +112,11 @@ namespace MapLoading
       {
         mTimer.Stop();
       }
+      var wTime = new Stopwatch();
+      wTime.Start();
       mTextBlock.Text = mTextBlock.Text + wText;
+      wTime.Stop();
+      Debug.WriteLine(wTime.Elapsed.TotalMilliseconds);
       //textBlock.Inlines.Add(wText);
     }
 
@@ -114,7 +124,7 @@ namespace MapLoading
     {
       if (value != null)
       {
-        value = value.ToString();
+        value = value;
 
         if (value.Contains("\\r\\n"))
           value = value.Replace("\\r\\n", Environment.NewLine);
@@ -148,7 +158,6 @@ namespace MapLoading
       }
 
       return value;
-    
     }
 
     private string GetNextChrunk()
@@ -172,7 +181,7 @@ namespace MapLoading
 
     private IEnumerable<string> SplitBy(string text, int chunkLength)
     {
-      if (String.IsNullOrEmpty(text)) throw new ArgumentException();
+      if (String.IsNullOrEmpty(text)) yield return text;
       if (chunkLength < 1) throw new ArgumentException();
 
       for (int wIndex = 0; wIndex < text.Length; wIndex += chunkLength)
@@ -183,17 +192,15 @@ namespace MapLoading
         yield return text.Substring(wIndex, chunkLength);
       }
     }
+
     public override void OnApplyTemplate()
     {
       base.OnApplyTemplate();
       mTextBlock = GetTemplateChild("PART_Text") as TextBlock;
       Debug.Assert(mTextBlock != null, "Unable to fetch template part 'PART_Text'");
 
-      mTimer = new DispatcherTimer();
-      mTimer.Tick += TimerTick;
-      UpdateDelay(Speed);
+      //UpdateDuration();
       //UpdateTextList();
     }
-    
   }
 }

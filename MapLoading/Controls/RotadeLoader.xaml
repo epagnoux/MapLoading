@@ -11,7 +11,7 @@
   x:Name="root"
   d:DesignWidth="640" d:DesignHeight="480">
   <UserControl.Resources>
-    <Converters:DoubleToDecreaseConverter x:Key="DoubleToDecreaseConverter"/>
+    <Converters:DoubleToDecreaseConverter x:Key="DoubleToDecreaseConverter"></Converters:DoubleToDecreaseConverter>
     <Storyboard x:Key="Load">
       <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(ed:Arc.EndAngle)" Storyboard.TargetName="arcLarge">
         <EasingDoubleKeyFrame KeyTime="0" Value="100" />

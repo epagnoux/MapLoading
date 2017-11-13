@@ -30,7 +30,7 @@ namespace MapLoading
     }
 
     public static readonly DependencyProperty DelayProperty =
-      DependencyProperty.Register("Speed",
+      DependencyProperty.Register("Duration",
         typeof (int),
         typeof (TextWritingEffect2),
         new PropertyMetadata(30,OnDelayChanged));
@@ -57,7 +57,7 @@ namespace MapLoading
       InitializeComponent();
       mTimer = new DispatcherTimer();
       mTimer.Tick += TimerTick;
-      //mTimer.Interval = TimeSpan.FromMilliseconds(Speed);
+      //mTimer.Interval = TimeSpan.FromMilliseconds(Duration);
       //UpdateTextList();
     }
 

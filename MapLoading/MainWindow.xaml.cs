@@ -23,11 +23,12 @@ namespace MapLoading
         {
             InitializeComponent();
         }
-      
 
-      //private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-      //  {
-      //    writingEffect.Text = textBox.Text;
-      //  }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+          writingEffect.Text = "";
+          writingEffect.Text = textBox.Text;
+        }
     }
 }

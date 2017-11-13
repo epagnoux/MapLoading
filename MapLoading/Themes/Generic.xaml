@@ -28,10 +28,10 @@
   </Style>
 
 
-  <Style TargetType="{x:Type local:TextWritingEffect}">
+  <Style TargetType="{x:Type Controls:TextWritingEffect}">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type local:TextWritingEffect}">
+                <ControlTemplate TargetType="{x:Type Controls:TextWritingEffect}">
                     <TextBlock x:Name="PART_Text" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" TextAlignment="Justify" />
         </ControlTemplate>
             </Setter.Value>
