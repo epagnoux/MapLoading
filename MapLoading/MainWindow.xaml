@@ -3,6 +3,7 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:MapLoading="clr-namespace:MapLoading"
   xmlns:Controls="clr-namespace:MapLoading.Controls"
+  xmlns:MapLoader="clr-namespace:MapLoading.Controls.MapLoader"
   x:Class="MapLoading.MainWindow"
   Title="MainWindow">
   <Window.Resources>
@@ -12,11 +13,11 @@
     </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Window.Resources>
-  <Grid Background="#FF000000" >
+  <!--<Grid Background="#FF000000" >
     <Grid.RowDefinitions>
       <RowDefinition Height="400"></RowDefinition>
       <RowDefinition></RowDefinition>
-    </Grid.RowDefinitions>
+    </Grid.RowDefinitions>-->
     <!--<StackPanel Orientation="Horizontal" Height="500" Width="1920">
       <MapLoading:RotadeLoader Width="150" Color="Chartreuse" Margin="20"/>
       <MapLoading:RotadeLoader Width="50" Height="50" Margin="20"/>
@@ -28,7 +29,7 @@
         <MapLoading:PanelSpace />
       </MapLoading:PanelSpaceFractureEffect.CustomContent>
     </MapLoading:PanelSpaceFractureEffect>-->
-    <StackPanel >
+    <!--<StackPanel >
       <Button Content="aaa" Click="ButtonBase_OnClick" Width="200" Height="54"></Button>
       <TextBox x:Name="duration" Width="50" Text="20" ></TextBox>
       <TextBox x:Name="chrunkLength" Width="50" Text="5" ></TextBox>
@@ -47,9 +48,20 @@ Radio-Canada avec Associated Press, Reuters et Agence France-Presse
       </TextBox.Text>
       
     </TextBox>
-    </StackPanel>
-    <Controls:TextWritingEffect x:Name="writingEffect" Duration="{Binding Text,ElementName=duration}" ChrunkLength="{Binding Text,ElementName=chrunkLength}"  Grid.Row="1" FontSize="12" Foreground="White" Width="800" />
+    </StackPanel>-->
+    <!--<Controls:TextWritingEffect x:Name="writingEffect" Duration="{Binding Text,ElementName=duration}" ChrunkLength="{Binding Text,ElementName=chrunkLength}"  Grid.Row="1" FontSize="12" Foreground="White" Width="800" />-->
 
 
-  </Grid>
+  <!--</Grid>-->
+  <Controls:ZoomAndPanControl
+      x:Name="zoomAndPanControl"
+      Background="LightGray"
+      MouseDown="zoomAndPanControl_MouseDown"
+      MouseUp="zoomAndPanControl_MouseUp"
+      MouseMove="zoomAndPanControl_MouseMove"
+      MouseWheel="zoomAndPanControl_MouseWheel">
+
+    <MapLoader:MapLoader x:Name="content"></MapLoader:MapLoader>
+  </Controls:ZoomAndPanControl>
+
 </Window>

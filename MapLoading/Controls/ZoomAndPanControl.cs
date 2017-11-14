@@ -11,7 +11,7 @@ namespace MapLoading.Controls
     /// </summary>
     public partial class ZoomAndPanControl : ContentControl, IScrollInfo
     {
-        #region Internal Data Members
+        #region Internal City Members
 
         /// <summary>
         /// Reference to the underlying content, which is named PART_Content in the template.
@@ -57,9 +57,9 @@ namespace MapLoading.Controls
         /// </summary>
         private double constrainedContentViewportHeight = 0.0;
 
-        #endregion Internal Data Members
+        #endregion Internal City Members
 
-        #region IScrollInfo Data Members
+        #region IScrollInfo City Members
 
         //
         // These data members are for the implementation of the IScrollInfo interface.
@@ -101,7 +101,7 @@ namespace MapLoading.Controls
         /// </summary>
         private ScrollViewer scrollOwner = null;
 
-        #endregion IScrollInfo Data Members
+        #endregion IScrollInfo City Members
 
         #region Dependency Property Definitions
 
@@ -119,7 +119,7 @@ namespace MapLoading.Controls
 
         public static readonly DependencyProperty MaxContentScaleProperty =
                 DependencyProperty.Register("MaxContentScale", typeof(double), typeof(ZoomAndPanControl),
-                                            new FrameworkPropertyMetadata(10.0, MinOrMaxContentScale_PropertyChanged));
+                                            new FrameworkPropertyMetadata(500.0, MinOrMaxContentScale_PropertyChanged));
 
         public static readonly DependencyProperty ContentOffsetXProperty =
                 DependencyProperty.Register("ContentOffsetX", typeof(double), typeof(ZoomAndPanControl),
@@ -773,9 +773,9 @@ namespace MapLoading.Controls
         {
             ZoomAndPanControl c = (ZoomAndPanControl)d;
             double value = (double)baseValue;
-            //double minOffsetX = 0.0;
-            //double maxOffsetX = Math.Max(0.0, c.unScaledExtent.Width - c.constrainedContentViewportWidth);
-            //value = Math.Min(Math.Max(value, minOffsetX), maxOffsetX);
+            double minOffsetX = 0.0;
+            double maxOffsetX = Math.Max(0.0, c.unScaledExtent.Width - c.constrainedContentViewportWidth);
+            value = Math.Min(Math.Max(value, minOffsetX), maxOffsetX);
             return value;
         }
 

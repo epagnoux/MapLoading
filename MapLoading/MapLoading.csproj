@@ -35,8 +35,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Cae.Synapse.Foundation, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\CAE\Cae.Synapse.Foundation.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Expression.Drawing" />
     <Reference Include="Microsoft.Expression.Interactions" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Json.net\Bin\Net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -50,9 +58,6 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls">
-      <HintPath>..\..\..\..\Program Files %28x86%29\Telerik\RadControls for WPF Q3 2012\Binaries\WPF45\Telerik.Windows.Controls.dll</HintPath>
-    </Reference>
     <Reference Include="UIAutomationProvider" />
     <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
@@ -63,6 +68,18 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="Controls\MapLoader\Map.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\MapLoader\MapLoader.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\MapLoader\MarkersViewer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\RotadeLoader.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -80,13 +97,31 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controls\AnimationHelper.cs" />
+    <Compile Include="Controls\MapLoader\Data\GeoData.cs" />
+    <Compile Include="Controls\MapLoader\Map.xaml.cs">
+      <DependentUpon>Map.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MapLoader\MapLoader.xaml.cs">
+      <DependentUpon>MapLoader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MapLoader\MapLoaderVM.cs" />
+    <Compile Include="Controls\MapLoader\MarkersViewer.xaml.cs">
+      <DependentUpon>MarkersViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MapLoader\Models\MarkerAirport.cs" />
+    <Compile Include="Controls\MapLoader\Models\MarkerBase.cs" />
+    <Compile Include="Controls\MapLoader\Models\MarkerCity.cs" />
     <Compile Include="Controls\RotadeLoader.xaml.cs">
       <DependentUpon>RotadeLoader.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\DummyConverter.cs" />
     <Compile Include="Converters\DoubleToDecreaseConverter.cs" />
     <Compile Include="Converters\DoubleToIncreaseConverter.cs" />
+    <Compile Include="Converters\LatitudeToYConverter.cs" />
+    <Compile Include="Converters\LongitudeToXConverter.cs" />
     <Compile Include="Converters\StringToNewLineConverter.cs" />
     <Compile Include="Controls\TextWritingEffect.cs" />
+    <Compile Include="Helper\GeoCoordinate.cs" />
     <Compile Include="TextWritingEffect2.xaml.cs">
       <DependentUpon>TextWritingEffect2.xaml</DependentUpon>
     </Compile>
@@ -135,6 +170,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Assets\Data\WorldAirportInfo.json" />
+    <None Include="Assets\Data\WorldCityInfo.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -148,6 +185,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Assets\Images\" />
     <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
