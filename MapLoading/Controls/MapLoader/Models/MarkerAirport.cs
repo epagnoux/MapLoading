@@ -12,7 +12,6 @@ namespace MapLoading.Controls.MapLoader.Models
     {
       Category = MarkerCategory.Airport;
     }
-
     public string ICAO
     {
       get { return mICAO; }

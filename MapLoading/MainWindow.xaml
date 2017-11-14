@@ -54,8 +54,8 @@ Radio-Canada avec Associated Press, Reuters et Agence France-Presse
 
   <!--</Grid>-->
   <Controls:ZoomAndPanControl
+      Background="#FF151515"
       x:Name="zoomAndPanControl"
-      Background="LightGray"
       MouseDown="zoomAndPanControl_MouseDown"
       MouseUp="zoomAndPanControl_MouseUp"
       MouseMove="zoomAndPanControl_MouseMove"

@@ -46,7 +46,7 @@
           </ItemsControl.ItemsPanel>
           <ItemsControl.ItemTemplate>
             <DataTemplate DataType="{x:Type models:MarkerBase}">
-            <Ellipse x:Name="ellipse" Width="1" Height="1" Fill="Red" />
+            <Ellipse x:Name="ellipse" Width="1" Height="1" Fill="Red" Opacity="0.5" />
             <DataTemplate.Triggers>
               <DataTrigger Binding="{Binding Category, Converter={StaticResource DummyConverter}}" Value="Airport" >
                 <Setter Property="Fill" Value="CadetBlue" TargetName="ellipse"/>

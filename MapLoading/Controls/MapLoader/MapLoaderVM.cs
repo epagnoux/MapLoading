@@ -35,8 +35,8 @@ namespace MapLoading.Controls.MapLoader
     public MapLoaderVM()
     {
 
-      //Task.Run(() => FillData());
-      FillData();
+      Task.Run(() => FillData());
+      //FillData();
     }
 
     private void FillData()
@@ -55,16 +55,18 @@ namespace MapLoading.Controls.MapLoader
       var wCity = new GeoData().City;
       MarkersCity = JsonConvert.DeserializeObject<ObservableCollection<MarkerCity>>(wCity);
       //SelectedMarkersCity = MarkersCity;
-      //SelectedMarkersCity = MarkersCity.Where(p => p.Population > 2500000);
-      SelectedMarkersCity = MarkersCity.Where(p => p.City == "Montréal");
+      SelectedMarkersCity = MarkersCity.Where(p => p.Population > 2500000);
+      //SelectedMarkersCity = MarkersCity.Where(p => p.City == "Montréal");
+      //SelectedMarkersCity = MarkersCity;
       
       var wAirport = new GeoData().Airport;
       MarkersAirport = JsonConvert.DeserializeObject<ObservableCollection<MarkerAirport>>(wAirport);
 
+      SelectedMarkersAirport = MarkersAirport.Where(p => p.ICAO != string.Empty);
       //var wResult = MarkersAirport.Where(p => p.DirectFlights >= 20);
-      var wResult = MarkersAirport.Where(p => p.ICAO == "CYUL");
-      SelectedMarkersAirport = wResult;
-      //SelectedMarkersAirport = MarkersAirport;
+      //var wResult = MarkersAirport.Where(p => p.ICAO == "CYUL");
+      //SelectedMarkersAirport = wResult;
+      //SelectedMarkersAirport = wResult;
     }
 
     public ObservableCollection<MarkerCity> MarkersCity
