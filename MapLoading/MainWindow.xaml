@@ -8,9 +8,9 @@
   Title="MainWindow">
   <Window.Resources>
     <ResourceDictionary>
-    <ResourceDictionary.MergedDictionaries>
-      <ResourceDictionary Source="/MapLoading;component/Themes/Generic.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/MapLoading;component/Themes/Generic.xaml" />
+      </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Window.Resources>
   <!--<Grid Background="#FF000000" >
@@ -18,18 +18,18 @@
       <RowDefinition Height="400"></RowDefinition>
       <RowDefinition></RowDefinition>
     </Grid.RowDefinitions>-->
-    <!--<StackPanel Orientation="Horizontal" Height="500" Width="1920">
+  <!--<StackPanel Orientation="Horizontal" Height="500" Width="1920">
       <MapLoading:RotadeLoader Width="150" Color="Chartreuse" Margin="20"/>
       <MapLoading:RotadeLoader Width="50" Height="50" Margin="20"/>
       <MapLoading:RotadeLoader Color="#e05138" Margin="20"/>
       <MapLoading:RotadeLoader Color="CornflowerBlue" Width="100" Margin="20"/>
     </StackPanel>-->
-    <!--<MapLoading:PanelSpaceFractureEffect Grid.Row="1" >
+  <!--<MapLoading:PanelSpaceFractureEffect Grid.Row="1" >
       <MapLoading:PanelSpaceFractureEffect.CustomContent>
         <MapLoading:PanelSpace />
       </MapLoading:PanelSpaceFractureEffect.CustomContent>
     </MapLoading:PanelSpaceFractureEffect>-->
-    <!--<StackPanel >
+  <!--<StackPanel >
       <Button Content="aaa" Click="ButtonBase_OnClick" Width="200" Height="54"></Button>
       <TextBox x:Name="duration" Width="50" Text="20" ></TextBox>
       <TextBox x:Name="chrunkLength" Width="50" Text="5" ></TextBox>
@@ -49,19 +49,108 @@ Radio-Canada avec Associated Press, Reuters et Agence France-Presse
       
     </TextBox>
     </StackPanel>-->
-    <!--<Controls:TextWritingEffect x:Name="writingEffect" Duration="{Binding Text,ElementName=duration}" ChrunkLength="{Binding Text,ElementName=chrunkLength}"  Grid.Row="1" FontSize="12" Foreground="White" Width="800" />-->
+  <!--<Controls:TextWritingEffect x:Name="writingEffect" Duration="{Binding Text,ElementName=duration}" ChrunkLength="{Binding Text,ElementName=chrunkLength}"  Grid.Row="1" FontSize="12" Foreground="White" Width="800" />-->
 
 
   <!--</Grid>-->
-  <Controls:ZoomAndPanControl
-      Background="#FF151515"
-      x:Name="zoomAndPanControl"
-      MouseDown="zoomAndPanControl_MouseDown"
-      MouseUp="zoomAndPanControl_MouseUp"
-      MouseMove="zoomAndPanControl_MouseMove"
-      MouseWheel="zoomAndPanControl_MouseWheel">
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition />
+      <ColumnDefinition Width="500" />
+    </Grid.ColumnDefinitions>
+    <Viewport3D Grid.Column="0">
+      <Viewport3D.Camera>
+        <OrthographicCamera x:Name="myPerspectiveCamera" Position="0.006,-0.328,2.076" LookDirection="-0.047,0.199,-0.979" UpDirection="-0.31,0.885,0.346" Width="0.5" />
+      </Viewport3D.Camera>
+      <Viewport2DVisual3D>
+        <Viewport2DVisual3D.Transform>
+          <Transform3DGroup>
+            <RotateTransform3D>
+              <RotateTransform3D.Rotation>
+                <AxisAngleRotation3D x:Name="angleRotation3DY" Angle="0" Axis="1, 0, 0"></AxisAngleRotation3D>
+              </RotateTransform3D.Rotation>
+            </RotateTransform3D>
+            <RotateTransform3D>
+              <RotateTransform3D.Rotation>
+                <AxisAngleRotation3D x:Name="angleRotation3DX" Angle="0" Axis="0, 1, 0" />
+              </RotateTransform3D.Rotation>
+            </RotateTransform3D>
+            <RotateTransform3D>
+              <RotateTransform3D.Rotation>
+                <AxisAngleRotation3D x:Name="angleRotation3DZ" Angle="0" Axis="0, 0, 1" />
+              </RotateTransform3D.Rotation>
+            </RotateTransform3D>
+          </Transform3DGroup>
+        </Viewport2DVisual3D.Transform>
+        <Viewport2DVisual3D.Geometry>
+          <MeshGeometry3D Positions="-1,1,0 -1,-1,0 1,-1,0 1,1,0"
+                          TextureCoordinates="0,0 0,1 1,1 1,0" TriangleIndices="0 1 2 0 2 3" />
+        </Viewport2DVisual3D.Geometry>
 
-    <MapLoader:MapLoader x:Name="content"></MapLoader:MapLoader>
-  </Controls:ZoomAndPanControl>
+        <Viewport2DVisual3D.Material>
+          <DiffuseMaterial Viewport2DVisual3D.IsVisualHostMaterial="True" Brush="White" />
+        </Viewport2DVisual3D.Material>
+
+        <Controls:ZoomAndPanControl
+          Background="#FF151515"
+          MaxContentScale="500"
+          x:Name="zoomAndPanControl"
+          MouseDown="zoomAndPanControl_MouseDown"
+          MouseUp="zoomAndPanControl_MouseUp"
+          MouseMove="zoomAndPanControl_MouseMove"
+          MouseWheel="zoomAndPanControl_MouseWheel">
+
+          <MapLoader:MapLoader x:Name="content" />
+        </Controls:ZoomAndPanControl>
+      </Viewport2DVisual3D>
+      <ModelVisual3D>
+        <ModelVisual3D.Content>
+          <Model3DGroup>
+          <AmbientLight Color="#ffffffff" />
+          <AmbientLight Color="Gray" />
+          <DirectionalLight Color="Gray" Direction="1,-2,-3" />
+          <DirectionalLight Color="Gray" Direction="-1,2,3" />
+          </Model3DGroup>
+        </ModelVisual3D.Content>
+      </ModelVisual3D>
+      <Viewport3D.Triggers>
+        <EventTrigger RoutedEvent="Viewport3D.Loaded">
+          <BeginStoryboard>
+            <Storyboard>
+
+              <!-- This animation moves the camera around the object. The object is not
+                       changing position or rotating but moving the camera makes it appear that
+                       it is.-->
+              <Point3DAnimation 
+                   Storyboard.TargetName="myPerspectiveCamera" 
+                   Storyboard.TargetProperty="Position" 
+                   From="1,2,3" To="0,0,-0.95" Duration="0:0:20" RepeatBehavior="Forever"/>
+
+
+              <!-- As the position of the camera changes using the Point3DAnimation
+                       above, the direction the camera is pointing swivels to keep the object
+                       within the view of the camera. -->
+              <Vector3DAnimation
+                   Storyboard.TargetName="myPerspectiveCamera" 
+                   Storyboard.TargetProperty="LookDirection" 
+                   From="-1,-2,-3" To="0,0,-1" Duration="0:0:20" RepeatBehavior="Forever"/>
+
+            </Storyboard>
+          </BeginStoryboard>
+        </EventTrigger>
+      </Viewport3D.Triggers>
+    </Viewport3D>
+    <StackPanel Grid.Column="1">
+      <TextBlock Text="Rotarion X" />
+      <TextBlock Text="{Binding Angle,ElementName=angleRotation3DX}" />
+      <Slider Minimum="-360" Maximum="360" Value="{Binding Angle,ElementName=angleRotation3DX}" />
+      <TextBlock Text="Rotarion Y" />
+      <TextBlock Text="{Binding Angle,ElementName=angleRotation3DY}" />
+      <Slider Minimum="-360" Maximum="360" Value="{Binding Angle,ElementName=angleRotation3DY}" />
+      <TextBlock Text="Rotarion Z" />
+      <TextBlock Text="{Binding Angle,ElementName=angleRotation3DZ}" />
+      <Slider Minimum="-360" Maximum="360" Value="{Binding Angle,ElementName=angleRotation3DZ}" />
+    </StackPanel>
+  </Grid>
 
 </Window>

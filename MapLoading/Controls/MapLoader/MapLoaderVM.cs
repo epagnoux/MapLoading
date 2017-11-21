@@ -62,11 +62,13 @@ namespace MapLoading.Controls.MapLoader
       var wAirport = new GeoData().Airport;
       MarkersAirport = JsonConvert.DeserializeObject<ObservableCollection<MarkerAirport>>(wAirport);
 
-      SelectedMarkersAirport = MarkersAirport.Where(p => p.ICAO != string.Empty);
+      //SelectedMarkersAirport = MarkersAirport.Where(p => p.ICAO != string.Empty && p.DirectFlights >= 20);
+      //SelectedMarkersAirport = MarkersAirport.Where(p => p.ICAO == string.Empty);
+      SelectedMarkersAirport = MarkersAirport.Where(p => p.SationType == "Other Airport" && p.DirectFlights >= 0);
       //var wResult = MarkersAirport.Where(p => p.DirectFlights >= 20);
       //var wResult = MarkersAirport.Where(p => p.ICAO == "CYUL");
       //SelectedMarkersAirport = wResult;
-      //SelectedMarkersAirport = wResult;
+      //SelectedMarkersAirport = MarkersAirport;
     }
 
     public ObservableCollection<MarkerCity> MarkersCity
