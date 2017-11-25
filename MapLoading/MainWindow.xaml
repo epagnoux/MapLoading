@@ -4,6 +4,8 @@
   xmlns:MapLoading="clr-namespace:MapLoading"
   xmlns:Controls="clr-namespace:MapLoading.Controls"
   xmlns:MapLoader="clr-namespace:MapLoading.Controls.MapLoader"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
   x:Class="MapLoading.MainWindow"
   Title="MainWindow">
   <Window.Resources>
@@ -11,8 +13,44 @@
       <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/MapLoading;component/Themes/Generic.xaml" />
       </ResourceDictionary.MergedDictionaries>
+      <Storyboard x:Key="Storyboard1">
+        <DoubleAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(SkewTransform.AngleX)"
+          Storyboard.TargetName="content">
+          <EasingDoubleKeyFrame KeyTime="0" Value="23" />
+          <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-21" />
+        </DoubleAnimationUsingKeyFrames>
+        <DoubleAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(SkewTransform.AngleY)"
+          Storyboard.TargetName="content">
+          <EasingDoubleKeyFrame KeyTime="0" Value="9" />
+          <EasingDoubleKeyFrame KeyTime="0:0:2" Value="15" />
+        </DoubleAnimationUsingKeyFrames>
+        <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)"
+                                      Storyboard.TargetName="content">
+          <EasingPointKeyFrame KeyTime="0" Value="0.5,0.5" />
+          <EasingPointKeyFrame KeyTime="0:0:2" Value="0,0.5" />
+        </PointAnimationUsingKeyFrames>
+        <DoubleAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)"
+          Storyboard.TargetName="content">
+          <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+          <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-152.049" />
+        </DoubleAnimationUsingKeyFrames>
+        <DoubleAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)"
+          Storyboard.TargetName="content">
+          <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+          <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-168" />
+        </DoubleAnimationUsingKeyFrames>
+      </Storyboard>
     </ResourceDictionary>
   </Window.Resources>
+  <Window.Triggers>
+    <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+      <!--<BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>-->
+    </EventTrigger>
+  </Window.Triggers>
   <!--<Grid Background="#FF000000" >
     <Grid.RowDefinitions>
       <RowDefinition Height="400"></RowDefinition>
@@ -54,103 +92,144 @@ Radio-Canada avec Associated Press, Reuters et Agence France-Presse
 
   <!--</Grid>-->
   <Grid>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition />
-      <ColumnDefinition Width="500" />
-    </Grid.ColumnDefinitions>
-    <Viewport3D Grid.Column="0">
-      <Viewport3D.Camera>
-        <OrthographicCamera x:Name="myPerspectiveCamera" Position="0.006,-0.328,2.076" LookDirection="-0.047,0.199,-0.979" UpDirection="-0.31,0.885,0.346" Width="0.5" />
-      </Viewport3D.Camera>
-      <Viewport2DVisual3D>
-        <Viewport2DVisual3D.Transform>
-          <Transform3DGroup>
-            <RotateTransform3D>
-              <RotateTransform3D.Rotation>
-                <AxisAngleRotation3D x:Name="angleRotation3DY" Angle="0" Axis="1, 0, 0"></AxisAngleRotation3D>
-              </RotateTransform3D.Rotation>
-            </RotateTransform3D>
-            <RotateTransform3D>
-              <RotateTransform3D.Rotation>
-                <AxisAngleRotation3D x:Name="angleRotation3DX" Angle="0" Axis="0, 1, 0" />
-              </RotateTransform3D.Rotation>
-            </RotateTransform3D>
-            <RotateTransform3D>
-              <RotateTransform3D.Rotation>
-                <AxisAngleRotation3D x:Name="angleRotation3DZ" Angle="0" Axis="0, 0, 1" />
-              </RotateTransform3D.Rotation>
-            </RotateTransform3D>
-          </Transform3DGroup>
-        </Viewport2DVisual3D.Transform>
-        <Viewport2DVisual3D.Geometry>
-          <MeshGeometry3D Positions="-1,1,0 -1,-1,0 1,-1,0 1,1,0"
-                          TextureCoordinates="0,0 0,1 1,1 1,0" TriangleIndices="0 1 2 0 2 3" />
-        </Viewport2DVisual3D.Geometry>
+    <!--<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition Width="500" />
+		</Grid.ColumnDefinitions>
+		<Viewport3D Grid.Column="0">
+			<Viewport3D.Camera>
+				<OrthographicCamera x:Name="myPerspectiveCamera" Position="0.006,-0.328,2.076" LookDirection="-0.047,0.199,-0.979" UpDirection="-0.31,0.885,0.346" Width="0.5" />
+			</Viewport3D.Camera>
+			<Viewport3D.Triggers>
+				<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+					<BeginStoryboard>
+						<Storyboard>
 
-        <Viewport2DVisual3D.Material>
-          <DiffuseMaterial Viewport2DVisual3D.IsVisualHostMaterial="True" Brush="White" />
-        </Viewport2DVisual3D.Material>
-
-        <Controls:ZoomAndPanControl
-          Background="#FF151515"
-          MaxContentScale="500"
-          x:Name="zoomAndPanControl"
-          MouseDown="zoomAndPanControl_MouseDown"
-          MouseUp="zoomAndPanControl_MouseUp"
-          MouseMove="zoomAndPanControl_MouseMove"
-          MouseWheel="zoomAndPanControl_MouseWheel">
-
-          <MapLoader:MapLoader x:Name="content" />
-        </Controls:ZoomAndPanControl>
-      </Viewport2DVisual3D>
-      <ModelVisual3D>
-        <ModelVisual3D.Content>
-          <Model3DGroup>
-          <AmbientLight Color="#ffffffff" />
-          <AmbientLight Color="Gray" />
-          <DirectionalLight Color="Gray" Direction="1,-2,-3" />
-          <DirectionalLight Color="Gray" Direction="-1,2,3" />
-          </Model3DGroup>
-        </ModelVisual3D.Content>
-      </ModelVisual3D>
-      <Viewport3D.Triggers>
-        <EventTrigger RoutedEvent="Viewport3D.Loaded">
-          <BeginStoryboard>
-            <Storyboard>
-
-              <!-- This animation moves the camera around the object. The object is not
-                       changing position or rotating but moving the camera makes it appear that
-                       it is.-->
-              <Point3DAnimation 
-                   Storyboard.TargetName="myPerspectiveCamera" 
-                   Storyboard.TargetProperty="Position" 
-                   From="1,2,3" To="0,0,-0.95" Duration="0:0:20" RepeatBehavior="Forever"/>
+					
+							<Point3DAnimation 
+								Storyboard.TargetName="myPerspectiveCamera" 
+								Storyboard.TargetProperty="Position" 
+								From="1,2,3" To="0,0,-0.95" Duration="0:0:20" RepeatBehavior="Forever"/>
 
 
-              <!-- As the position of the camera changes using the Point3DAnimation
-                       above, the direction the camera is pointing swivels to keep the object
-                       within the view of the camera. -->
-              <Vector3DAnimation
-                   Storyboard.TargetName="myPerspectiveCamera" 
-                   Storyboard.TargetProperty="LookDirection" 
-                   From="-1,-2,-3" To="0,0,-1" Duration="0:0:20" RepeatBehavior="Forever"/>
+							<Vector3DAnimation
+								Storyboard.TargetName="myPerspectiveCamera" 
+								Storyboard.TargetProperty="LookDirection" 
+								From="-1,-2,-3" To="0,0,-1" Duration="0:0:20" RepeatBehavior="Forever"/>
 
-            </Storyboard>
-          </BeginStoryboard>
-        </EventTrigger>
-      </Viewport3D.Triggers>
-    </Viewport3D>
-    <StackPanel Grid.Column="1">
-      <TextBlock Text="Rotarion X" />
-      <TextBlock Text="{Binding Angle,ElementName=angleRotation3DX}" />
-      <Slider Minimum="-360" Maximum="360" Value="{Binding Angle,ElementName=angleRotation3DX}" />
-      <TextBlock Text="Rotarion Y" />
-      <TextBlock Text="{Binding Angle,ElementName=angleRotation3DY}" />
-      <Slider Minimum="-360" Maximum="360" Value="{Binding Angle,ElementName=angleRotation3DY}" />
-      <TextBlock Text="Rotarion Z" />
-      <TextBlock Text="{Binding Angle,ElementName=angleRotation3DZ}" />
-      <Slider Minimum="-360" Maximum="360" Value="{Binding Angle,ElementName=angleRotation3DZ}" />
+						</Storyboard>
+					</BeginStoryboard>
+				</EventTrigger>
+			</Viewport3D.Triggers>
+			<Viewport2DVisual3D>
+				<Viewport2DVisual3D.Transform>
+					<Transform3DGroup>
+						<TranslateTransform3D OffsetZ="0" OffsetX="0" OffsetY="0"/>
+						<ScaleTransform3D ScaleX="1.668" ScaleY="0.565"/>
+						<RotateTransform3D d:EulerAngles="0,0,0">
+							<RotateTransform3D.Rotation>
+								<AxisAngleRotation3D Axis="0,1,0" Angle="0"/>
+							</RotateTransform3D.Rotation>
+						</RotateTransform3D>
+						<TranslateTransform3D OffsetZ="0" OffsetX="0" OffsetY="0"/>
+						<TranslateTransform3D OffsetZ="0.497"/>
+					</Transform3DGroup>
+				</Viewport2DVisual3D.Transform>
+				<Viewport2DVisual3D.Geometry>
+					<MeshGeometry3D Positions="-1,1,0 -1,-1,0 1,-1,0 1,1,0"
+						TextureCoordinates="0,0 0,1 1,1 1,0" TriangleIndices="0 1 2 0 2 3" />
+				</Viewport2DVisual3D.Geometry>
+
+				<Viewport2DVisual3D.Material>
+					<DiffuseMaterial Viewport2DVisual3D.IsVisualHostMaterial="True" Brush="White" />
+				</Viewport2DVisual3D.Material>
+
+				<Controls:ZoomAndPanControl
+					Background="#FF151515"
+					MaxContentScale="500"
+					x:Name="zoomAndPanControl"
+					MouseDown="zoomAndPanControl_MouseDown"
+					MouseUp="zoomAndPanControl_MouseUp"
+					MouseMove="zoomAndPanControl_MouseMove"
+					MouseWheel="zoomAndPanControl_MouseWheel">
+
+					<MapLoader:MapLoader x:Name="content" />
+				</Controls:ZoomAndPanControl>
+			</Viewport2DVisual3D>
+			<ModelVisual3D>
+				<ModelVisual3D.Content>
+					<Model3DGroup>
+						<AmbientLight Color="#ffffffff" />
+						<AmbientLight Color="Gray" />
+						<DirectionalLight Color="Gray" Direction="1,-2,-3" />
+						<DirectionalLight Color="Gray" Direction="-1,2,3" />
+					</Model3DGroup>
+				</ModelVisual3D.Content>
+			</ModelVisual3D>
+		</Viewport3D>
+		<StackPanel Grid.Column="1">
+			<TextBlock Text="Rotarion X" />
+			<TextBlock Text="{Binding Angle, ElementName=angleRotation3DX}" />
+			<Slider Minimum="-360" Maximum="360" Value="{Binding Angle, ElementName=angleRotation3DX}" />
+			<TextBlock Text="Rotarion Y" />
+			<TextBlock Text="{Binding Angle, ElementName=angleRotation3DY}" />
+			<Slider Minimum="-360" Maximum="360" Value="{Binding Angle, ElementName=angleRotation3DY}" />
+			<TextBlock Text="Rotarion Z" />
+			<TextBlock Text="{Binding Angle, ElementName=angleRotation3DZ}" />
+			<Slider Minimum="-360" Maximum="360" Value="{Binding Angle, ElementName=angleRotation3DZ}" />
+		</StackPanel>-->
+    
+    
+    <Controls:ZoomAndPanControl
+      Background="#FF151515"
+      MaxContentScale="3475"
+      x:Name="zoomAndPanControl"
+      MouseDown="zoomAndPanControl_MouseDown"
+      MouseUp="zoomAndPanControl_MouseUp"
+      MouseMove="zoomAndPanControl_MouseMove"
+      MouseWheel="zoomAndPanControl_MouseWheel" MinContentScale="1" RenderTransformOrigin="0.5,0.5"
+      ContentViewportHeight="97" ContentViewportWidth="121" ContentZoomFocusX="378" ContentZoomFocusY="172"
+      ContentScale="1">
+
+      <MapLoader:MapLoader x:Name="content" RenderTransformOrigin="0.5,0.5">
+        <MapLoader:MapLoader.RenderTransform>
+          <TransformGroup>
+            <ScaleTransform />
+            <SkewTransform AngleX="{Binding Value,ElementName=sliderSkewX}"
+                           AngleY="{Binding Value,ElementName=sliderSkewY}" />
+            <RotateTransform Angle="{Binding Value,ElementName=sliderRotation}" />
+            <TranslateTransform />
+          </TransformGroup>
+        </MapLoader:MapLoader.RenderTransform>
+      </MapLoader:MapLoader>
+    </Controls:ZoomAndPanControl>
+    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+      <Button Width="50" Height="20" Click="ButtonBase_OnClick1">Point 1</Button>
+      <Button Width="50" Height="20" Click="ButtonBase_OnClick2">Point 2</Button>
     </StackPanel>
+    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" TextBlock.Foreground="White" Margin="50">
+      <TextBlock Text="{Binding ContentScale,ElementName=zoomAndPanControl, StringFormat=ContentScale:{0}}" />
+      <TextBlock Text="{Binding ContentOffsetX,ElementName=zoomAndPanControl, StringFormat=ContentOffsetX:{0}}" />
+      <TextBlock Text="{Binding ContentOffsetY,ElementName=zoomAndPanControl, StringFormat=ContentOffsetY:{0}}" />
+    </StackPanel>
+    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="50" Width="200" TextBlock.Foreground="White" >
+      <!--<TextBlock Text="Rotarion X" />
+      <TextBlock Text="{Binding Angle, ElementName=angleRotation3DX}" />
+      <Slider Minimum="-360" Maximum="360" Value="{Binding Angle, ElementName=angleRotation3DX}" />
+      <TextBlock Text="Rotarion Y" />
+      <TextBlock Text="{Binding Angle, ElementName=angleRotation3DY}" />
+      <Slider Minimum="-360" Maximum="360" Value="{Binding Angle, ElementName=angleRotation3DY}" />-->
+      <TextBlock Text="Skew X" />
+      <TextBlock Text="{Binding Value, ElementName=sliderSkewX}" />
+      <Slider x:Name="sliderSkewX" Minimum="-89" Maximum="89" Value="0" />
+      <TextBlock Text="Skew Y" />
+      <TextBlock Text="{Binding Value, ElementName=sliderSkewY}" />
+      <Slider x:Name="sliderSkewY" Minimum="-89" Maximum="89" Value="0" />
+      <TextBlock Text="Rotation" />
+      <TextBlock Text="{Binding Value, ElementName=sliderRotation}" />
+      <Slider x:Name="sliderRotation" Minimum="-180" Maximum="180" Value="0" />
+    </StackPanel>
+
   </Grid>
 
 </Window>

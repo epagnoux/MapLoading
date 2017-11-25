@@ -84,6 +84,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="TestPerspective.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="TextWritingEffect2.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -122,6 +126,9 @@
     <Compile Include="Converters\StringToNewLineConverter.cs" />
     <Compile Include="Controls\TextWritingEffect.cs" />
     <Compile Include="Helper\GeoCoordinate.cs" />
+    <Compile Include="TestPerspective.xaml.cs">
+      <DependentUpon>TestPerspective.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TextWritingEffect2.xaml.cs">
       <DependentUpon>TextWritingEffect2.xaml</DependentUpon>
     </Compile>

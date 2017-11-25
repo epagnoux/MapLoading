@@ -55,6 +55,7 @@ namespace MapLoading
     public MainWindow()
     {
       InitializeComponent();
+      
     }
     /// <summary>
     /// Event raised on mouse down in the ZoomAndPanControl.
@@ -269,5 +270,17 @@ namespace MapLoading
       e.Handled = true;
     }
 
+    private void ButtonBase_OnClick1(object sender, RoutedEventArgs e)
+    {
+      zoomAndPanControl.AnimatedZoomTo(2, new Rect(200,200,200,200));
+      //zoomAndPanControl.AnimatedZoomPointToViewportCenter(2, new Point(ActualWidth /2, ActualHeight / 2), null);
+      //AnimatedZoomPointToViewportCenter()
+    }
+    private void ButtonBase_OnClick2(object sender, RoutedEventArgs e)
+    {
+      zoomAndPanControl.AnimatedZoomTo(30, new Rect(950,250,200,200));
+      //zoomAndPanControl.AnimatedZoomPointToViewportCenter(2, new Point(ActualWidth /2, ActualHeight / 2), null);
+      //AnimatedZoomPointToViewportCenter()
+    }
   }
 }
