@@ -100,6 +100,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controls\Manipulation3D\Perspective.cs" />
     <Compile Include="Controls\AnimationHelper.cs" />
     <Compile Include="Controls\MapLoader\Data\GeoData.cs" />
     <Compile Include="Controls\MapLoader\Map.xaml.cs">

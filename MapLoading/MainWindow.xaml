@@ -92,15 +92,22 @@ Radio-Canada avec Associated Press, Reuters et Agence France-Presse
 
   <!--</Grid>-->
   <Grid>
-    <!--<Grid.ColumnDefinitions>
+    <Grid.ColumnDefinitions>
 			<ColumnDefinition />
 			<ColumnDefinition Width="500" />
 		</Grid.ColumnDefinitions>
 		<Viewport3D Grid.Column="0">
 			<Viewport3D.Camera>
-				<OrthographicCamera x:Name="myPerspectiveCamera" Position="0.006,-0.328,2.076" LookDirection="-0.047,0.199,-0.979" UpDirection="-0.31,0.885,0.346" Width="0.5" />
+        <PerspectiveCamera
+            Position = "0, 0, 0.3"
+            LookDirection = "0, 0, -1"
+            UpDirection = "0, 1, 0"
+            FieldOfView = "100">
+        </PerspectiveCamera>
+        
+				<!--<OrthographicCamera x:Name="myPerspectiveCamera" Position="0.006,-0.328,2.076" LookDirection="-0.047,0.199,-0.979" UpDirection="-0.31,0.885,0.346" Width="0.5" />-->
 			</Viewport3D.Camera>
-			<Viewport3D.Triggers>
+			<!--<Viewport3D.Triggers>
 				<EventTrigger RoutedEvent="FrameworkElement.Loaded">
 					<BeginStoryboard>
 						<Storyboard>
@@ -120,25 +127,30 @@ Radio-Canada avec Associated Press, Reuters et Agence France-Presse
 						</Storyboard>
 					</BeginStoryboard>
 				</EventTrigger>
-			</Viewport3D.Triggers>
+			</Viewport3D.Triggers>-->
 			<Viewport2DVisual3D>
 				<Viewport2DVisual3D.Transform>
 					<Transform3DGroup>
-						<TranslateTransform3D OffsetZ="0" OffsetX="0" OffsetY="0"/>
-						<ScaleTransform3D ScaleX="1.668" ScaleY="0.565"/>
+						<!--<TranslateTransform3D OffsetZ="0" OffsetX="0" OffsetY="0"/>
+						<ScaleTransform3D ScaleX="1.668" ScaleY="0.565"/>-->
 						<RotateTransform3D d:EulerAngles="0,0,0">
 							<RotateTransform3D.Rotation>
-								<AxisAngleRotation3D Axis="0,1,0" Angle="0"/>
+								<AxisAngleRotation3D Axis="0,1,0" Angle="-10"/>
 							</RotateTransform3D.Rotation>
 						</RotateTransform3D>
-						<TranslateTransform3D OffsetZ="0" OffsetX="0" OffsetY="0"/>
-						<TranslateTransform3D OffsetZ="0.497"/>
+						<!--<TranslateTransform3D OffsetZ="0" OffsetX="0" OffsetY="0"/>
+						<TranslateTransform3D OffsetZ="0.497"/>-->
 					</Transform3DGroup>
 				</Viewport2DVisual3D.Transform>
 				<Viewport2DVisual3D.Geometry>
-					<MeshGeometry3D Positions="-1,1,0 -1,-1,0 1,-1,0 1,1,0"
-						TextureCoordinates="0,0 0,1 1,1 1,0" TriangleIndices="0 1 2 0 2 3" />
-				</Viewport2DVisual3D.Geometry>
+					<!--<MeshGeometry3D Positions="-1,1,0 -1,-1,0 1,-1,0 1,1,0"
+						TextureCoordinates="0,0 0,1 1,1 1,0" TriangleIndices="0 1 2 0 2 3" />-->
+          <MeshGeometry3D
+                            Positions="-1.125,-1.415,0 1.125,-1.415,0 1.125,1.415,0 -1.125,1.415,0"
+                            TriangleIndices="0,1,2 2,3,0"
+                            TextureCoordinates="0,1 1,1 1,0 0,0">
+          </MeshGeometry3D>
+        </Viewport2DVisual3D.Geometry>
 
 				<Viewport2DVisual3D.Material>
 					<DiffuseMaterial Viewport2DVisual3D.IsVisualHostMaterial="True" Brush="White" />
@@ -146,12 +158,13 @@ Radio-Canada avec Associated Press, Reuters et Agence France-Presse
 
 				<Controls:ZoomAndPanControl
 					Background="#FF151515"
-					MaxContentScale="500"
+					MaxContentScale="3000"
 					x:Name="zoomAndPanControl"
 					MouseDown="zoomAndPanControl_MouseDown"
 					MouseUp="zoomAndPanControl_MouseUp"
 					MouseMove="zoomAndPanControl_MouseMove"
-					MouseWheel="zoomAndPanControl_MouseWheel">
+					MouseWheel="zoomAndPanControl_MouseWheel"
+          ContentScale="500">
 
 					<MapLoader:MapLoader x:Name="content" />
 				</Controls:ZoomAndPanControl>
@@ -168,6 +181,15 @@ Radio-Canada avec Associated Press, Reuters et Agence France-Presse
 			</ModelVisual3D>
 		</Viewport3D>
 		<StackPanel Grid.Column="1">
+			<!--<TextBlock Text="Rotarion X" />
+			<TextBlock Text="{Binding Angle, ElementName=angleRotation3DX}" />
+			<Slider Minimum="-360" Maximum="360" Value="{Binding Angle, ElementName=angleRotation3DX}" />
+			<TextBlock Text="Rotarion Y" />
+			<TextBlock Text="{Binding Angle, ElementName=angleRotation3DY}" />
+			<Slider Minimum="-360" Maximum="360" Value="{Binding Angle, ElementName=angleRotation3DY}" />
+			<TextBlock Text="Rotarion Z" />
+			<TextBlock Text="{Binding Angle, ElementName=angleRotation3DZ}" />
+			<Slider Minimum="-360" Maximum="360" Value="{Binding Angle, ElementName=angleRotation3DZ}" />-->
 			<TextBlock Text="Rotarion X" />
 			<TextBlock Text="{Binding Angle, ElementName=angleRotation3DX}" />
 			<Slider Minimum="-360" Maximum="360" Value="{Binding Angle, ElementName=angleRotation3DX}" />
@@ -177,10 +199,10 @@ Radio-Canada avec Associated Press, Reuters et Agence France-Presse
 			<TextBlock Text="Rotarion Z" />
 			<TextBlock Text="{Binding Angle, ElementName=angleRotation3DZ}" />
 			<Slider Minimum="-360" Maximum="360" Value="{Binding Angle, ElementName=angleRotation3DZ}" />
-		</StackPanel>-->
+		</StackPanel>
     
     
-    <Controls:ZoomAndPanControl
+    <!--<Controls:ZoomAndPanControl
       Background="#FF151515"
       MaxContentScale="3475"
       x:Name="zoomAndPanControl"
@@ -213,12 +235,6 @@ Radio-Canada avec Associated Press, Reuters et Agence France-Presse
       <TextBlock Text="{Binding ContentOffsetY,ElementName=zoomAndPanControl, StringFormat=ContentOffsetY:{0}}" />
     </StackPanel>
     <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="50" Width="200" TextBlock.Foreground="White" >
-      <!--<TextBlock Text="Rotarion X" />
-      <TextBlock Text="{Binding Angle, ElementName=angleRotation3DX}" />
-      <Slider Minimum="-360" Maximum="360" Value="{Binding Angle, ElementName=angleRotation3DX}" />
-      <TextBlock Text="Rotarion Y" />
-      <TextBlock Text="{Binding Angle, ElementName=angleRotation3DY}" />
-      <Slider Minimum="-360" Maximum="360" Value="{Binding Angle, ElementName=angleRotation3DY}" />-->
       <TextBlock Text="Skew X" />
       <TextBlock Text="{Binding Value, ElementName=sliderSkewX}" />
       <Slider x:Name="sliderSkewX" Minimum="-89" Maximum="89" Value="0" />
@@ -228,7 +244,7 @@ Radio-Canada avec Associated Press, Reuters et Agence France-Presse
       <TextBlock Text="Rotation" />
       <TextBlock Text="{Binding Value, ElementName=sliderRotation}" />
       <Slider x:Name="sliderRotation" Minimum="-180" Maximum="180" Value="0" />
-    </StackPanel>
+    </StackPanel>-->
 
   </Grid>
 
